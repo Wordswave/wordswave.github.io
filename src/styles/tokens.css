@@ -1,0 +1,89 @@
+:root {
+  /* Primitive colors */
+  --primitive-color-parchment: #e5e4e0;
+  --primitive-color-ink: #1d1d1d;
+  --primitive-color-paper: #ffffff;
+  --primitive-color-ash: #bfbebe;
+  --primitive-color-stone: #cdcdc9;
+  --primitive-color-spectrum-yellow: #facb00;
+  --primitive-color-spectrum-pink: #f06ba8;
+  --primitive-color-spectrum-blue: #78bae6;
+
+  /* Primitive spacing */
+  --primitive-space-0: 0px;
+  --primitive-space-1: 4px;
+  --primitive-space-2: 8px;
+  --primitive-space-3: 12px;
+  --primitive-space-4: 16px;
+  --primitive-space-element: 19px;
+  --primitive-space-5: 20px;
+  --primitive-space-6: 24px;
+  --primitive-space-card: 30px;
+  --primitive-space-8: 32px;
+  --primitive-space-10: 40px;
+  --primitive-space-gutter-desktop: 46px;
+  --primitive-space-12: 48px;
+  --primitive-space-16: 64px;
+  --primitive-space-section: 76px;
+  --primitive-space-24: 96px;
+  --primitive-space-section-wide: 119px;
+
+  /* Primitive typography */
+  --primitive-font-sans: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --primitive-text-caption: 11px;
+  --primitive-text-body-small: 15px;
+  --primitive-text-body: 18px;
+  --primitive-text-subheading: 34px;
+  --primitive-text-heading-small: 46px;
+  --primitive-text-heading: 70px;
+  --primitive-text-heading-large: 76px;
+  --primitive-text-display: 103px;
+
+  /* Primitive shape, size, and motion */
+  --primitive-radius-none: 0px;
+  --primitive-radius-interactive: 10px;
+  --primitive-radius-full: 9999px;
+  --primitive-size-cta: 32px;
+  --primitive-size-content-max: 1400px;
+  --primitive-duration-fast: 150ms;
+  --primitive-duration-normal: 220ms;
+  --primitive-duration-slow: 300ms;
+  --primitive-shadow-none: none;
+  --primitive-gradient-spectrum: linear-gradient(
+    255deg,
+    var(--primitive-color-spectrum-yellow),
+    var(--primitive-color-spectrum-pink) 30%,
+    var(--primitive-color-spectrum-blue) 65%,
+    var(--primitive-color-paper)
+  );
+
+  /* Semantic tokens */
+  --semantic-color-canvas: var(--primitive-color-parchment);
+  --semantic-color-text: var(--primitive-color-ink);
+  --semantic-color-surface: var(--primitive-color-paper);
+  --semantic-color-surface-quiet: var(--primitive-color-stone);
+  --semantic-color-border: var(--primitive-color-ash);
+  --semantic-color-focus: var(--primitive-color-ink);
+  --semantic-spacing-element: var(--primitive-space-element);
+  --semantic-spacing-card: var(--primitive-space-card);
+  --semantic-spacing-section: var(--primitive-space-section);
+  --semantic-spacing-section-wide: var(--primitive-space-section-wide);
+  --semantic-radius-surface: var(--primitive-radius-none);
+  --semantic-radius-interactive: var(--primitive-radius-interactive);
+  --semantic-font-sans: var(--primitive-font-sans);
+
+  /* Component tokens */
+  --component-button-height: var(--primitive-size-cta);
+  --component-button-bg: transparent;
+  --component-button-fg: var(--semantic-color-text);
+  --component-button-border: var(--semantic-color-text);
+  --component-button-hover-bg: var(--semantic-color-text);
+  --component-button-hover-fg: var(--semantic-color-canvas);
+  --component-button-padding-x: var(--primitive-space-element);
+  --component-button-radius: var(--semantic-radius-interactive);
+  --component-card-bg: var(--semantic-color-surface);
+  --component-card-border: var(--semantic-color-border);
+  --component-card-padding: var(--semantic-spacing-card);
+  --component-card-radius: var(--semantic-radius-surface);
+  --component-card-shadow: var(--primitive-shadow-none);
+}

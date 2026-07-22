@@ -1,0 +1,36 @@
+@import "tailwindcss";
+@import "./tokens.css";
+
+@theme inline {
+  --font-sans: var(--semantic-font-sans);
+
+  --color-canvas: var(--semantic-color-canvas);
+  --color-ink: var(--semantic-color-text);
+  --color-paper: var(--semantic-color-surface);
+  --color-stone: var(--semantic-color-surface-quiet);
+  --color-rule: var(--semantic-color-border);
+  --color-focus: var(--semantic-color-focus);
+
+  --spacing-element: var(--semantic-spacing-element);
+  --spacing-card: var(--semantic-spacing-card);
+  --spacing-section: var(--semantic-spacing-section);
+  --spacing-section-wide: var(--semantic-spacing-section-wide);
+  --spacing-page: var(--primitive-space-gutter-desktop);
+  --spacing-cta: var(--component-button-height);
+
+  --radius-card: var(--component-card-radius);
+  --radius-interactive: var(--component-button-radius);
+  --radius-orbit: var(--primitive-radius-full);
+
+  --text-caption: var(--primitive-text-caption);
+  --text-body-sm: var(--primitive-text-body-small);
+  --text-body: var(--primitive-text-body);
+  --text-subheading: var(--primitive-text-subheading);
+  --text-heading-sm: var(--primitive-text-heading-small);
+  --text-heading: var(--primitive-text-heading);
+  --text-heading-lg: var(--primitive-text-heading-large);
+  --text-display: var(--primitive-text-display);
+
+  --shadow-flat: var(--primitive-shadow-none);
+  --animate-reveal: reveal var(--primitive-duration-slow) ease-out both;
+}
