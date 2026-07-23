@@ -71,7 +71,7 @@ Chinese:
 ## Localization architecture
 
 - `LanguageProvider` owns `en | zh` state.
-- Initial language comes from `localStorage`; when absent, `navigator.language` selects Chinese only for `zh-*` locales and English otherwise.
+- Initial language comes from `localStorage`; when absent, any `zh-*` browser locale selects the available Simplified Chinese content and all other locales select English.
 - The selected language is persisted under a namespaced key and updates `<html lang>`.
 - `content.ts` is the only source for navigation, page copy, component labels, and translated CAD example strings.
 - Components receive translated content from the language hook; no parallel English-only and Chinese-only component trees.
@@ -109,11 +109,29 @@ Chinese:
 - Each use case contains one short title, one sentence describing the task, and one line naming the expected CAD output.
 - No industries, customer personas, or success metrics are invented.
 
+Approved conceptual copy:
+
+| Use case | English | 简体中文 |
+|---|---|---|
+| Brackets + mounts | Create constrained plates, hole patterns, ribs, and fillets. | 创建带约束的板件、孔阵列、加强筋与圆角。 |
+| Jigs + fixtures | Define datums, locating features, and tool access. | 定义基准、定位特征与工具空间。 |
+| Product enclosures | Build shells, lids, bosses, vents, and assembly clearances. | 构建壳体、上盖、支柱、通风口与装配间隙。 |
+| Prototype mechanisms | Create editable concept geometry for changing requirements. | 为变化中的需求创建可编辑概念几何。 |
+
 ### Docs
 
 - This is an onboarding/help page, not a claim of a complete documentation platform.
-- Organize the confirmed workflow into four sections: describe, review, verify, export.
+- Organize the confirmed workflow into four conceptual summaries: describe, review, verify, export. Do not document unconfirmed production controls, button sequences, account behavior, or backend procedures.
 - Include a short “What the preview includes” disclosure and a product-demo CTA.
+
+Approved conceptual copy:
+
+| Step | English | 简体中文 |
+|---|---|---|
+| Describe | State the part, dimensions, material, and constraints. | 说明零件、尺寸、材料与约束。 |
+| Review | Inspect editable geometry, parameters, and operation history. | 检查可编辑几何、参数与操作历史。 |
+| Verify | Review geometry and manufacturing checks beside the model. | 在模型旁查看几何与制造检查。 |
+| Export | Choose an available format for downstream work. | 选择可用格式，衔接后续工作。 |
 
 ### About
 
@@ -132,7 +150,7 @@ Chinese:
 
 ## Error and fallback behavior
 
-- Unknown route renders a bilingual not-found page with a home action.
+- Unknown route renders a not-found page in the currently selected language, rather than displaying both languages at once.
 - Missing `VITE_WORKSPACE_URL` falls back to `/product`, never a dead or fake login route.
 - Missing saved language falls back deterministically to the browser language rule.
 - Localization content is statically typed so missing English or Chinese fields fail TypeScript.
@@ -155,4 +173,3 @@ Chinese:
 - Mobile navigation opens, closes with Escape, and navigates between routes.
 - No horizontal overflow at 375, 768, 1024, or 1440px.
 - `npm run typecheck`, `npm test -- --run`, and `npm run build` pass.
-
