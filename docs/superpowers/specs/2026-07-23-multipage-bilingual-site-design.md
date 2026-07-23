@@ -106,7 +106,7 @@ Chinese:
 ### Use cases
 
 - Use the existing ruled list and square editorial cards.
-- Each use case contains one short title, one sentence describing the task, and one line naming the expected CAD output.
+- Each use case contains one short title and one approved sentence that intentionally combines the task with its CAD output. No second line is inferred or duplicated.
 - No industries, customer personas, or success metrics are invented.
 
 Approved conceptual copy:
