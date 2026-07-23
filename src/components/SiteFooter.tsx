@@ -1,41 +1,46 @@
 import { ArrowUp } from 'lucide-react'
-
-const footerLinks = [
-  { label: 'Workflow', href: '#workflow' },
-  { label: 'Product', href: '#product' },
-  { label: 'Evidence', href: '#evidence' },
-  { label: 'Use cases', href: '#use-cases' },
-] as const
+import { Link } from 'react-router-dom'
+import { useLanguage } from '../i18n/LanguageContext'
+import { LanguageSwitch } from './LanguageSwitch'
 
 export function SiteFooter() {
+  const { copy } = useLanguage()
+  const footerLinks = [
+    { label: copy.nav.home, href: '/' },
+    { label: copy.nav.product, href: '/product' },
+    { label: copy.nav.useCases, href: '/use-cases' },
+    { label: copy.nav.docs, href: '/docs' },
+    { label: copy.nav.about, href: '/about' },
+  ] as const
+
   return (
     <footer className="site-footer">
       <div className="page-shell footer-grid">
         <div>
-          <a className="wordmark" href="#top" aria-label="CAD Agent home">
+          <Link className="wordmark" to="/" aria-label={copy.a11y.home}>
             <span className="wordmark-mark" aria-hidden="true">
               C
             </span>
             <span>CAD / AGENT</span>
-          </a>
-          <p className="footer-note">
-            The interactive model on this page is an illustrative product preview. The CAD Agent
-            workspace contains the real generation, editing, validation, history, and export pipeline.
-          </p>
+          </Link>
+          <p className="footer-note">{copy.footer.note}</p>
         </div>
 
-        <nav aria-label="Footer navigation" className="footer-links">
+        <nav aria-label={copy.a11y.footerNav} className="footer-links">
           {footerLinks.map((item) => (
-            <a href={item.href} key={item.href}>
+            <Link to={item.href} key={item.href}>
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
-        <a className="back-to-top" href="#top">
-          Back to top
-          <ArrowUp aria-hidden="true" size={14} strokeWidth={1.5} />
-        </a>
+        <div className="footer-actions">
+          <LanguageSwitch />
+          <a className="back-to-top" href="#top">
+            {copy.actions.backToTop}
+            <ArrowUp aria-hidden="true" size={14} strokeWidth={1.5} />
+          </a>
+        </div>
       </div>
     </footer>
   )

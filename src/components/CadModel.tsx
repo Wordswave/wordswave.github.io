@@ -1,4 +1,4 @@
-import type { CadModelKind } from '../data/cadExamples'
+import type { CadModelKind } from '../i18n/content'
 
 interface CadModelProps {
   kind: CadModelKind

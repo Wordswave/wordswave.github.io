@@ -1,10 +1,12 @@
 import { ArrowUpRight } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import { workspaceUrl } from '../config'
 import { useMeasuredText } from '../hooks/useMeasuredText'
-
-const closingStatement = 'Move from intent to engineering evidence.'
+import { useLanguage } from '../i18n/LanguageContext'
 
 export function ClosingCta() {
+  const { copy } = useLanguage()
+  const closingStatement = copy.home.closing.title
   const measured = useMeasuredText<HTMLHeadingElement>(closingStatement)
 
   return (
@@ -12,7 +14,7 @@ export function ClosingCta() {
       <div aria-hidden="true" className="closing-orbit closing-orbit-one" />
       <div aria-hidden="true" className="closing-orbit closing-orbit-two" />
       <div className="page-shell closing-inner">
-        <p className="eyebrow">Ready when the model matters</p>
+        <p className="eyebrow">{copy.home.closing.label}</p>
         <h2
           className="closing-title"
           data-pretext="true"
@@ -24,13 +26,13 @@ export function ClosingCta() {
         </h2>
         <div className="closing-actions">
           <a className="ghost-cta" href={workspaceUrl}>
-            Explore workspace
+            {copy.actions.workspace}
             <ArrowUpRight aria-hidden="true" size={14} strokeWidth={1.5} />
           </a>
-          <a className="text-link" href="#product">
-            Replay the product flow
+          <Link className="text-link" to="/product">
+            {copy.home.closing.secondary}
             <ArrowUpRight aria-hidden="true" size={15} strokeWidth={1.5} />
-          </a>
+          </Link>
         </div>
       </div>
     </section>

@@ -1,41 +1,41 @@
 import { Check, ChevronRight, Download, SlidersHorizontal, Terminal } from 'lucide-react'
 import { useState } from 'react'
-import { cadExamples } from '../data/cadExamples'
+import { useLanguage } from '../i18n/LanguageContext'
 import { CadModel } from './CadModel'
 import { SectionLabel } from './SectionLabel'
 
 export function ProductDemo() {
+  const { copy } = useLanguage()
+  const { cadExamples } = copy
   const [activeId, setActiveId] = useState(cadExamples[0].id)
   const active = cadExamples.find((example) => example.id === activeId) ?? cadExamples[0]
+  const labels = copy.product.demo
 
   return (
-    <section className="section-pad product-section" id="product" aria-labelledby="product-title">
+    <section className="section-pad product-section" id="preview" aria-labelledby="product-demo-title">
       <div className="page-shell">
-        <SectionLabel index="03">Product preview</SectionLabel>
+        <SectionLabel index="01">{labels.label}</SectionLabel>
         <div className="product-heading-row">
-          <h2 id="product-title">A workspace that shows its work.</h2>
-          <p>
-            Select a request. The model, parameters, build history, checks, and export package stay tied
-            to the same engineering intent.
-          </p>
+          <h2 id="product-demo-title">{labels.title}</h2>
+          <p>{labels.support}</p>
         </div>
 
         <div className="product-shell">
           <div className="product-toolbar">
             <div className="product-toolbar-title">
               <Terminal aria-hidden="true" size={16} strokeWidth={1.5} />
-              <span>CAD Agent / Interactive preview</span>
+              <span>{labels.toolbar}</span>
             </div>
             <div className="product-status">
               <span aria-hidden="true" className="status-dot" />
-              Model synchronized
+              {labels.synchronized}
             </div>
           </div>
 
           <div className="product-workspace">
             <aside className="request-rail">
-              <p className="rail-label">Example requests</p>
-              <div aria-label="Example engineering requests" className="request-list" role="group">
+              <p className="rail-label">{labels.requests}</p>
+              <div aria-label={labels.requestsLabel} className="request-list" role="group">
                 {cadExamples.map((example) => {
                   const selected = example.id === active.id
 
@@ -53,7 +53,7 @@ export function ProductDemo() {
                       {selected ? (
                         <span className="request-arrow">
                           <span aria-hidden="true">→</span>
-                          <span className="sr-only">Selected example</span>
+                          <span className="sr-only">{copy.a11y.selectedExample}</span>
                         </span>
                       ) : (
                         <ChevronRight aria-hidden="true" size={15} strokeWidth={1.5} />
@@ -64,7 +64,7 @@ export function ProductDemo() {
               </div>
 
               <div className="prompt-transcript">
-                <span className="rail-label">Prompt</span>
+                <span className="rail-label">{labels.prompt}</span>
                 <p>“{active.prompt}”</p>
               </div>
             </aside>
@@ -72,11 +72,11 @@ export function ProductDemo() {
             <figure className="product-viewport paper-grid">
               <figcaption className="viewport-caption">
                 <div>
-                  <span className="rail-label">Active model</span>
+                  <span className="rail-label">{labels.activeModel}</span>
                   <strong>{active.title}</strong>
                 </div>
                 <div className="viewport-envelope">
-                  <span className="rail-label">Envelope</span>
+                  <span className="rail-label">{labels.envelope}</span>
                   <strong>{active.envelope}</strong>
                 </div>
               </figcaption>
@@ -86,13 +86,13 @@ export function ProductDemo() {
                 <span>Y</span>
                 <span>Z</span>
               </div>
-              <div className="viewport-mode">Isometric / constraints visible</div>
+              <div className="viewport-mode">{labels.viewportMode}</div>
             </figure>
 
             <aside className="parameter-rail">
               <div className="rail-heading">
                 <SlidersHorizontal aria-hidden="true" size={16} strokeWidth={1.5} />
-                <span>Parameters</span>
+                <span>{labels.parameters}</span>
               </div>
               <dl className="parameter-list">
                 {active.parameters.map((parameter) => (
@@ -104,9 +104,9 @@ export function ProductDemo() {
               </dl>
 
               <div className="constraint-summary">
-                <span className="rail-label">Constraint state</span>
+                <span className="rail-label">{labels.constraintState}</span>
                 <strong>{active.constraints} / {active.constraints}</strong>
-                <span>Fully constrained</span>
+                <span>{labels.fullyConstrained}</span>
               </div>
             </aside>
           </div>
@@ -118,7 +118,7 @@ export function ProductDemo() {
                   <Check aria-hidden="true" size={14} strokeWidth={1.8} />
                 </span>
                 <div>
-                  <span className="rail-label">Validation</span>
+                  <span className="rail-label">{labels.validation}</span>
                   <strong>{active.validation.title}</strong>
                 </div>
               </div>
@@ -130,7 +130,7 @@ export function ProductDemo() {
             </div>
 
             <div className="operation-summary">
-              <span className="rail-label">Operation history / {String(active.operations.length).padStart(2, '0')}</span>
+              <span className="rail-label">{labels.operationHistory} / {String(active.operations.length).padStart(2, '0')}</span>
               <ol>
                 {active.operations.map((operation, index) => (
                   <li key={operation}>
@@ -144,7 +144,7 @@ export function ProductDemo() {
             <div className="export-summary">
               <div className="rail-heading">
                 <Download aria-hidden="true" size={16} strokeWidth={1.5} />
-                <span>Export manifest</span>
+                <span>{labels.exportManifest}</span>
               </div>
               <div className="export-list">
                 {active.exports.map((format) => (
@@ -156,7 +156,7 @@ export function ProductDemo() {
         </div>
 
         <p aria-live="polite" className="sr-only">
-          {active.title} loaded. {active.envelope}. {active.validation.title}.
+          {active.title} {labels.loaded}. {active.envelope}. {active.validation.title}.
         </p>
       </div>
     </section>

@@ -1,60 +1,29 @@
 import { ArrowUpRight, Check, FileOutput, History, Ruler, ShieldCheck } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { useLanguage } from '../i18n/LanguageContext'
 import { SectionLabel } from './SectionLabel'
 
-const evidence = [
-  {
-    title: 'Parameter record',
-    label: 'Editable by design',
-    description: 'Dimensions, materials, clearances, and feature values remain named and inspectable.',
-    rows: ['Named dimensions', 'Units preserved', 'Revision-safe values'],
-    icon: Ruler,
-  },
-  {
-    title: 'Geometry checks',
-    label: 'Before export',
-    description: 'Solid integrity and constraint state are returned beside the model that produced them.',
-    rows: ['Watertight body', 'Constraint state', 'Interference review'],
-    icon: ShieldCheck,
-  },
-  {
-    title: 'Manufacturing review',
-    label: 'Practical evidence',
-    description: 'Wall thickness, draft, access, and process-sensitive conditions stay visible.',
-    rows: ['Minimum wall', 'Draft direction', 'Tool access'],
-    icon: Check,
-  },
-  {
-    title: 'Operation history',
-    label: 'A readable build',
-    description: 'Trace the sequence from sketch to feature instead of accepting a silent final mesh.',
-    rows: ['Sketch intent', 'Feature sequence', 'Change history'],
-    icon: History,
-  },
-  {
-    title: 'Export manifest',
-    label: 'Downstream ready',
-    description: 'Package the geometry and documentation needed for review, prototyping, or production.',
-    rows: ['STEP / STL', 'SVG / DXF', 'Evidence summary'],
-    icon: FileOutput,
-  },
-] as const
+const evidenceIcons = [Ruler, ShieldCheck, Check, History, FileOutput] as const
 
 export function EvidenceGrid() {
+  const { copy } = useLanguage()
+  const evidence = copy.product.evidence
+
   return (
     <section className="section-pad evidence-section" id="evidence" aria-labelledby="evidence-title">
       <div className="page-shell">
-        <SectionLabel index="04">Engineering evidence</SectionLabel>
+        <SectionLabel index="02">{evidence.label}</SectionLabel>
         <div className="evidence-heading-row">
-          <h2 id="evidence-title">The evidence travels with the geometry.</h2>
-          <a className="text-link" href="#use-cases">
-            Where it fits
+          <h2 id="evidence-title">{evidence.title}</h2>
+          <Link className="text-link" to="/use-cases">
+            {evidence.action}
             <ArrowUpRight aria-hidden="true" size={15} strokeWidth={1.5} />
-          </a>
+          </Link>
         </div>
 
         <div className="evidence-grid">
-          {evidence.map((item, index) => {
-            const Icon = item.icon
+          {evidence.items.map((item, index) => {
+            const Icon = evidenceIcons[index]
 
             return (
               <article className={index === 0 ? 'evidence-card evidence-card-lead paper-grid' : 'evidence-card'} key={item.title}>

@@ -1,17 +1,22 @@
 import { ArrowUpRight, Menu, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import { workspaceUrl } from '../config'
-
-const navigation = [
-  { label: 'Workflow', href: '#workflow' },
-  { label: 'Product', href: '#product' },
-  { label: 'Evidence', href: '#evidence' },
-  { label: 'Use cases', href: '#use-cases' },
-] as const
+import { useLanguage } from '../i18n/LanguageContext'
+import { LanguageSwitch } from './LanguageSwitch'
 
 export function SiteHeader() {
+  const { copy } = useLanguage()
+  const { pathname } = useLocation()
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const navigation = [
+    { label: copy.nav.home, href: '/' },
+    { label: copy.nav.product, href: '/product' },
+    { label: copy.nav.useCases, href: '/use-cases' },
+    { label: copy.nav.docs, href: '/docs' },
+    { label: copy.nav.about, href: '/about' },
+  ] as const
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 48)
@@ -31,36 +36,46 @@ export function SiteHeader() {
     }
   }, [])
 
-  const closeMenu = () => setMenuOpen(false)
+  useEffect(() => {
+    setMenuOpen(false)
+  }, [pathname])
 
   return (
     <header className="site-header" data-scrolled={scrolled ? 'true' : 'false'}>
       <div className="page-shell flex h-full items-center justify-between gap-element">
-        <a className="wordmark" href="#top" aria-label="CAD Agent home">
+        <Link className="wordmark" to="/" aria-label={copy.a11y.home}>
           <span className="wordmark-mark" aria-hidden="true">
             C
           </span>
           <span>CAD / AGENT</span>
-        </a>
+        </Link>
 
-        <nav aria-label="Primary navigation" className="hidden items-center gap-6 md:flex">
+        <nav aria-label={copy.a11y.primaryNav} className="hidden items-center gap-6 lg:flex">
           {navigation.map((item) => (
-            <a className="nav-link" href={item.href} key={item.href}>
+            <NavLink
+              className={({ isActive }) => `nav-link${isActive ? ' nav-link-active' : ''}`}
+              end={item.href === '/'}
+              key={item.href}
+              to={item.href}
+            >
               {item.label}
-            </a>
+            </NavLink>
           ))}
         </nav>
 
         <div className="flex items-center gap-2">
-          <a className="ghost-cta hidden sm:inline-flex" href={workspaceUrl}>
-            Explore workspace
+          <div className="hidden sm:block">
+            <LanguageSwitch />
+          </div>
+          <a className="ghost-cta hidden md:inline-flex" href={workspaceUrl}>
+            {copy.actions.workspace}
             <ArrowUpRight aria-hidden="true" size={14} strokeWidth={1.5} />
           </a>
           <button
             aria-controls="mobile-navigation"
             aria-expanded={menuOpen}
-            aria-label={menuOpen ? 'Close navigation' : 'Open navigation'}
-            className="mobile-menu-button md:hidden"
+            aria-label={menuOpen ? copy.a11y.closeNav : copy.a11y.openNav}
+            className="mobile-menu-button lg:hidden"
             onClick={() => setMenuOpen((open) => !open)}
             type="button"
           >
@@ -71,21 +86,24 @@ export function SiteHeader() {
 
       {menuOpen ? (
         <nav
-          aria-label="Mobile navigation"
-          className="mobile-navigation md:hidden"
+          aria-label={copy.a11y.mobileNav}
+          className="mobile-navigation lg:hidden"
           id="mobile-navigation"
         >
           <div className="page-shell flex flex-col">
             {navigation.map((item) => (
-              <a className="mobile-nav-link" href={item.href} key={item.href} onClick={closeMenu}>
+              <NavLink className="mobile-nav-link" end={item.href === '/'} key={item.href} to={item.href}>
                 <span>{item.label}</span>
                 <ArrowUpRight aria-hidden="true" size={18} strokeWidth={1.5} />
-              </a>
+              </NavLink>
             ))}
-            <a className="mobile-nav-link" href={workspaceUrl} onClick={closeMenu}>
-              <span>Explore workspace</span>
+            <a className="mobile-nav-link" href={workspaceUrl}>
+              <span>{copy.actions.workspace}</span>
               <ArrowUpRight aria-hidden="true" size={18} strokeWidth={1.5} />
             </a>
+            <div className="mobile-language-switch sm:hidden">
+              <LanguageSwitch />
+            </div>
           </div>
         </nav>
       ) : null}
