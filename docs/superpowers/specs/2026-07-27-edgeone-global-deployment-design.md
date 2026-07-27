@@ -56,9 +56,10 @@ EdgeOne CLI is not currently installed.
 The deployment workflow will:
 
 1. Install the official `edgeone` CLI globally through npm.
-2. Run `edgeone login`.
-3. Ask the user to complete the Tencent Cloud browser authorization and select `Global` if the browser flow requires user interaction.
-4. Run `edgeone whoami` without printing tokens or credentials.
+2. Run `edgeone -v` and require version 1.2.0 or newer.
+3. Run `edgeone login`.
+4. Ask the user to complete the Tencent Cloud browser authorization and select `Global` if the browser flow requires user interaction.
+5. Run `edgeone whoami` without printing tokens or credentials.
 
 No credential files will be committed to the project.
 
@@ -72,7 +73,15 @@ The site uses React `BrowserRouter` with these routes:
 - `/docs`
 - `/about`
 
-After deployment, direct navigation and refresh must work for every route. If the platform does not automatically apply SPA fallback behavior for the uploaded artifact, configure the EdgeOne project to serve `index.html` for unknown application paths before calling the deployment complete.
+After deployment, direct navigation and refresh must work for every route.
+
+EdgeOne's documented `edgeone.json` rewrites do not support SPA frontend-route fallback, so this deployment will not add an unsupported catch-all rewrite. Deploy the existing artifact first and test every direct route against the production URL.
+
+If any direct route returns the platform 404 instead of the application, stop the deployment workflow and ask the user to choose a follow-up routing strategy. Do not silently change the application. The choices are:
+
+- emit a static `index.html` copy for each known application route during the build;
+- change the application to hash-based routes;
+- migrate to EdgeOne's React Router framework adapter and source-build workflow.
 
 ## Verification
 
@@ -86,19 +95,20 @@ Before upload:
 After upload:
 
 - Confirm the generated production URL responds successfully.
+- Confirm the URL is the persistent production project URL, not a temporary preview link.
 - Check `/`, `/product`, `/use-cases`, `/docs`, and `/about`.
 - Check `media/wordswave-logo.jpg` and `media/wordswave-product-demo.mp4`.
 - Verify the homepage visually at desktop and mobile viewport widths.
 - Check browser console errors.
-- Record the production URL and HTTP health check in the project's deploy configuration only after the URL is known.
+- Record the production URL and HTTP health check in `CLAUDE.md` under `## Deploy Configuration` only after the URL is known and verified.
 
 ## Failure Handling
 
 - If CLI installation fails, stop and report the package manager error.
 - If login requires browser interaction, pause and ask the user to complete authorization.
-- If the project name is unavailable, use the closest EdgeOne-generated available name and report it.
+- If the project name is unavailable, stop and ask the user to approve a different name.
 - If deployment fails, inspect the CLI output and do not claim success.
-- If a nested route fails on refresh, configure SPA fallback and redeploy or update the project before completion.
+- If a nested route fails on refresh, stop and ask the user which documented routing strategy to implement before changing code or deployment artifacts.
 - If the deployed media is missing, verify the local `dist/media` contents and redeploy the complete directory.
 
 ## Completion Criteria
