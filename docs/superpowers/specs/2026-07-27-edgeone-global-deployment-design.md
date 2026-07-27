@@ -87,6 +87,7 @@ If any direct route returns the platform 404 instead of the application, stop th
 
 Before upload:
 
+- Confirm neither the shell nor a Vite environment file defines `VITE_WORKSPACE_URL`.
 - Run `npm test -- --run`.
 - Run `npm run typecheck`.
 - Run `npm run build`.
@@ -99,8 +100,9 @@ After upload:
 - Check `/`, `/product`, `/use-cases`, `/docs`, and `/about`.
 - Check `media/wordswave-logo.jpg` and `media/wordswave-product-demo.mp4`.
 - Verify the homepage visually at desktop and mobile viewport widths.
+- Confirm a workspace call to action resolves to the expected `/product` fallback.
 - Check browser console errors.
-- Record the production URL and HTTP health check in `CLAUDE.md` under `## Deploy Configuration` only after the URL is known and verified.
+- Create `CLAUDE.md` if absent, then record the production URL and HTTP health check under `## Deploy Configuration` only after the URL is known and verified.
 
 ## Failure Handling
 
@@ -121,3 +123,4 @@ Deployment is complete only when:
 - Both supplied media files load.
 - Desktop and mobile homepage checks pass.
 - No blocking console errors are present.
+- `CLAUDE.md` contains the verified EdgeOne production URL and health check.
