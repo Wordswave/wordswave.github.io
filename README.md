@@ -38,3 +38,17 @@ npm run build
 ## Static hosting
 
 The site uses client-side routing. Configure the static host to rewrite unknown application paths such as `/product`, `/use-cases`, `/docs`, and `/about` to `index.html`. Static assets should continue to be served normally.
+
+## GitHub Pages
+
+Public preview: <https://owenywt.github.io/wordswave-web/>
+
+Build the Pages artifact locally:
+
+```bash
+npm run test:pages
+npm run build:pages
+```
+
+GitHub Actions deploys the verified `dist` artifact from `main`. The existing
+`npm run build` command remains the root-based build for local and EdgeOne hosting.
