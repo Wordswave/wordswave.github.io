@@ -6,8 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
+    "build:pages": "tsc --noEmit && vite build --base=/wordswave-web/ && node scripts/prepare-pages.mjs",
     "typecheck": "tsc --noEmit",
     "test": "vitest",
+    "test:pages": "node --test scripts/prepare-pages.test.mjs",
     "preview": "vite preview"
   },
   "dependencies": {
