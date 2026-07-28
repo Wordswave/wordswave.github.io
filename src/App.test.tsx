@@ -32,6 +32,11 @@ describe('bilingual route tree', () => {
     expect(screen.getByRole('heading', { level: 1, name: heading })).toBeVisible()
   })
 
+  it('uses the product title for a trailing-slash direct route', () => {
+    renderRoute('/product/')
+    expect(document.title).toBe('Product — WordsWave')
+  })
+
   it('uses the professional WordsWave brand and footer disclosure', () => {
     renderRoute('/')
 

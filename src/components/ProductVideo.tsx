@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { productVideoUrl } from '../config'
 import { useLanguage } from '../i18n/LanguageContext'
 import { SectionLabel } from './SectionLabel'
 
@@ -62,7 +63,7 @@ export function ProductVideo() {
             playsInline
             preload="metadata"
             ref={videoRef}
-            src="/media/wordswave-product-demo.mp4"
+            src={productVideoUrl}
           >
             {video.fallback}
           </video>

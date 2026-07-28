@@ -23,7 +23,8 @@ function RouteTitle() {
   const { pathname } = useLocation()
 
   useEffect(() => {
-    document.title = copy.meta[pageByPath[pathname] ?? 'notFound']
+    const normalizedPath = pathname === '/' ? pathname : pathname.replace(/\/+$/, '')
+    document.title = copy.meta[pageByPath[normalizedPath] ?? 'notFound']
   }, [copy, pathname])
 
   return null
