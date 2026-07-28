@@ -99,11 +99,11 @@ Concurrent Pages runs are grouped so a newer deployment supersedes an older queu
 The workflow contract is:
 
 - runtime: Node.js 22;
-- checkout: `actions/checkout@v4`;
-- Node setup and npm cache: `actions/setup-node@v4`;
-- Pages configuration: `actions/configure-pages@v5`;
-- artifact upload: `actions/upload-pages-artifact@v3`, with `dist` as the only uploaded path;
-- deployment: `actions/deploy-pages@v4`;
+- checkout: `actions/checkout@v6`;
+- Node setup and npm cache: `actions/setup-node@v7`;
+- Pages configuration: `actions/configure-pages@v6`;
+- artifact upload: `actions/upload-pages-artifact@v5`, with `dist` as the only uploaded path;
+- deployment: `actions/deploy-pages@v5`;
 - build job first, deploy job second with an explicit `needs: build`;
 - deploy job environment: `github-pages`;
 - environment URL: the `page_url` output from the deploy step.
