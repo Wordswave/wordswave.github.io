@@ -12,7 +12,7 @@ export function EvidenceGrid() {
   return (
     <section className="section-pad evidence-section" id="evidence" aria-labelledby="evidence-title">
       <div className="page-shell">
-        <SectionLabel index="02">{evidence.label}</SectionLabel>
+        <SectionLabel index="03">{evidence.label}</SectionLabel>
         <div className="evidence-heading-row">
           <h2 id="evidence-title">{evidence.title}</h2>
           <Link className="text-link" to="/use-cases">

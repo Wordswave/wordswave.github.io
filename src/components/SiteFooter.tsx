@@ -1,6 +1,7 @@
 import { ArrowUp } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useLanguage } from '../i18n/LanguageContext'
+import { BrandMark } from './BrandMark'
 import { LanguageSwitch } from './LanguageSwitch'
 
 export function SiteFooter() {
@@ -18,10 +19,7 @@ export function SiteFooter() {
       <div className="page-shell footer-grid">
         <div>
           <Link className="wordmark" to="/" aria-label={copy.a11y.home}>
-            <span className="wordmark-mark" aria-hidden="true">
-              C
-            </span>
-            <span>CAD / AGENT</span>
+            <BrandMark />
           </Link>
           <p className="footer-note">{copy.footer.note}</p>
         </div>

@@ -51,6 +51,16 @@ Object.defineProperty(window, 'scrollTo', {
   value: vi.fn(),
 })
 
+Object.defineProperty(HTMLMediaElement.prototype, 'play', {
+  configurable: true,
+  value: vi.fn(() => Promise.resolve()),
+})
+
+Object.defineProperty(HTMLMediaElement.prototype, 'pause', {
+  configurable: true,
+  value: vi.fn(),
+})
+
 Object.defineProperty(HTMLCanvasElement.prototype, 'getContext', {
   configurable: true,
   value: vi.fn(() => ({

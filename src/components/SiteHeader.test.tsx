@@ -36,6 +36,13 @@ describe('SiteHeader', () => {
     renderHeader()
 
     expect(screen.getByRole('link', { name: 'Home' })).toHaveAttribute('aria-current', 'page')
+    const brandLink = screen.getByRole('link', { name: 'WordsWave home' })
+    expect(brandLink).toBeVisible()
+    expect(brandLink).toHaveTextContent('WordsWave')
+    expect(brandLink.querySelector('img')).toHaveAttribute('src', '/media/wordswave-logo.jpg')
+    expect(brandLink.querySelector('.brand-mark-symbol')).toBeInTheDocument()
+    expect(brandLink.querySelector('.brand-mark-name')).toHaveTextContent('WordsWave')
+    expect(screen.getAllByRole('link', { name: 'Open workspace' }).length).toBeGreaterThan(0)
     expect(screen.getAllByRole('button', { name: '中文' }).length).toBeGreaterThan(0)
 
     const menuButton = screen.getByRole('button', { name: /open navigation/i })

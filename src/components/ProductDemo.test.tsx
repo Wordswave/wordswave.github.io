@@ -22,6 +22,7 @@ describe('ProductDemo', () => {
   it('updates and localizes model evidence without changing engineering values', () => {
     renderDemo()
 
+    expect(screen.getByText('WordsWave / Interactive preview')).toBeVisible()
     const enclosure = screen.getByRole('button', { name: /electronics enclosure/i })
     fireEvent.click(enclosure)
 
@@ -29,17 +30,18 @@ describe('ProductDemo', () => {
     expect(within(enclosure).getByText('→')).toBeVisible()
     expect(within(enclosure).getByText(/selected example/i)).toBeInTheDocument()
     expect(screen.getAllByText('160 × 96 × 42 mm').length).toBeGreaterThan(0)
-    expect(screen.getByText('Assembly verified')).toBeVisible()
+    expect(screen.getByText('Assembly checks complete')).toBeVisible()
     expect(screen.getByText('Vent array')).toBeVisible()
     expect(screen.getByText('DXF')).toBeVisible()
 
     fireEvent.click(screen.getByRole('button', { name: '中文' }))
 
+    expect(screen.getByText('WordsWave / 交互预览')).toBeVisible()
     expect(screen.getByRole('button', { name: /电子设备外壳/i })).toHaveAttribute(
       'aria-pressed',
       'true',
     )
-    expect(screen.getByText('装配已验证')).toBeVisible()
+    expect(screen.getByText('装配检查完成')).toBeVisible()
     expect(screen.getByText('通风阵列')).toBeVisible()
     expect(screen.getAllByText('160 × 96 × 42 mm').length).toBeGreaterThan(0)
   })

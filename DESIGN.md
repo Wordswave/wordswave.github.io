@@ -1,12 +1,12 @@
-# CAD Agent Web Design System
+# WordsWave Web Design System
 
 Source: [OFF+BRAND. on Refero Styles](https://styles.refero.design/style/6b667ffc-5158-4000-9252-3a107d5161ee)
 
-This file is the visual source of truth for the CAD Agent product website. It adapts the reference system to a technical CAD product without changing its defining rules.
+This file is the visual source of truth for the WordsWave product website. It adapts the reference system to a natural-language CAD workspace without changing its defining rules.
 
 ## North Star
 
-**Verified engineering, presented like an editorial instrument.**
+**A focused engineering workspace presented with editorial clarity.**
 
 The page uses a warm parchment canvas and large architectural typography. A single iridescent sphere is the only chromatic event. Product proof appears as precise, flat, rectilinear CAD surfaces rather than decorative marketing imagery.
 
@@ -15,7 +15,7 @@ The page uses a warm parchment canvas and large architectural typography. A sing
 1. Use Parchment as the page canvas, Ink for text, Paper for elevated content, and Ash for 1px structure. Do not introduce another UI color.
 2. Use the iridescent gradient exactly once, on the hero sphere. It never becomes a button, text, border, badge, or section background.
 3. Cards and image frames are flat, square, and shadowless. Interactive controls use a 10px radius.
-4. Display typography is large and tightly stacked. Body text stays between 15px and 18px. Section labels are 11px, uppercase, and widely tracked.
+4. Display typography is large but controlled. Body text is 16px, supporting text is 14px, and metadata is never smaller than 12px.
 5. The primary CTA has no special accent color. It is a 32px ghost control with an Ink border and inverts on hover.
 
 ## Token architecture
@@ -49,20 +49,21 @@ linear-gradient(255deg, #facb00, #f06ba8 30%, #78bae6 65%, #ffffff)
 
 ## Typography
 
-The reference uses the proprietary Ataero Retina OB Edition family. The website uses Inter as the approved prototype substitute with tight tracking and a single-family hierarchy.
+The reference uses the proprietary Ataero Retina OB Edition family. The website uses Inter as the approved substitute with a single responsive hierarchy. Roles, rather than individual components, control size, weight, line height, and tracking.
 
-| Role | Size | Line height | Letter spacing | Use |
-|---|---:|---:|---:|---|
-| Caption | 11px | 1.4 | 0.05em | Section labels, metadata |
-| Body small | 15px | 1.4 | 0.01em | Navigation, controls |
-| Body | 18px | 1.4 | 0.01em | Product explanation |
-| Subheading | 34px | 1 | 0.006em | Capability headings |
-| Heading small | 46px | 1 | 0.006em | Section statements |
-| Heading | 70px | 0.8 | 0.013em | Responsive display |
-| Heading large | 76px | 0.8 | 0.013em | Desktop display |
-| Display | 103px | 0.8 | 0.013em | Hero typography |
+| Role | Desktop | Tablet | Mobile | Weight | Line height | Tracking | Measure |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Display | 82px | 68px | 48px | 400 | 0.92 | -0.045em | Hero only |
+| Page title | 68px | 56px | 44px | 400 | 0.94 | -0.03em | 18ch |
+| Section title | 52px | 44px | 36px | 400 | 1 | -0.03em | 22ch |
+| Module title | 30px | 28px | 26px | 400 | 1.08 | -0.03em | 28ch |
+| Lead | 17px | 17px | 17px | 400 | 1.45 | 0 | 42ch |
+| Body | 16px | 16px | 16px | 400 | 1.5 | 0 | 62ch |
+| Supporting | 14px | 14px | 14px | 400 | 1.45 | 0 | 62ch |
+| Navigation | 14px | 14px | 14px | 500 | 1.45 | 0 | — |
+| Metadata | 12px | 12px | 12px | 600 | 1.2 | 0.05em | — |
 
-Use weight 400 for body and display. Use 600–700 only for small interface labels where the original uses a heavier weight.
+Use 400 for headings and reading text, 500 for navigation, and 600 only for compact interface labels. English headings use controlled negative tracking; Chinese display, page, section, and module headings use `0em` tracking. Breakpoints are 900px for tablet and 767px for mobile.
 
 ## Spacing and layout
 
@@ -90,7 +91,7 @@ Use weight 400 for body and display. Use 600–700 only for small interface labe
 
 - Height: 32px.
 - Horizontal padding: 19px.
-- Label: 11px uppercase with 0.05em tracking for compact CTA, or 15px sentence case for text-link CTA.
+- Label: 12px semibold uppercase with 0.05em tracking for compact CTA, or 14px medium sentence case for text-link CTA.
 - Default: transparent background, 1px Ink border, Ink text.
 - Hover: Ink background, Parchment text.
 - Focus: visible 2px Ink outline with 2px offset.
@@ -113,6 +114,8 @@ Cards behave like sheets on a drafting table:
 
 - No stock photography or lifestyle imagery.
 - Use real product UI, CAD silhouettes, line drawings, measurements, and manufacturing evidence.
+- Use the supplied WordsWave logo unchanged; crop its vertical canvas non-destructively in shared header and footer lockups.
+- Place the supplied product demo only on the Product page in a flat, square, ruled media frame.
 - Monochrome product visuals are preferred.
 - The hero sphere is a CSS visual, not a downloaded image.
 - Grid-paper patterns can appear only inside product and evidence surfaces.
@@ -123,6 +126,7 @@ Cards behave like sheets on a drafting table:
 - Use restrained 150–300ms transitions.
 - Hero text and product proof may reveal on first load with small opacity/translate changes.
 - CAD geometry may rotate slowly only while the pointer is over the demo.
+- Product video autoplays muted, loops, plays inline, and retains controls. Disable autoplay when `prefers-reduced-motion` is active.
 - Respect `prefers-reduced-motion` and remove nonessential animation.
 
 ## Accessibility
@@ -141,7 +145,7 @@ Cards behave like sheets on a drafting table:
 3. Product promise in an asymmetric two-column editorial block.
 4. Prompt → model → verification workflow.
 5. Interactive CAD workspace demonstration with selectable prompt examples.
-6. Evidence section for parameters, validation, DFM, history, and export.
+6. Model-review section for parameters, geometry checks, manufacturing checks, history, and export.
 7. Use-case strip for mechanical parts, fixtures, enclosures, and prototypes.
 8. Large closing CTA and restrained footer.
 
@@ -150,8 +154,9 @@ Cards behave like sheets on a drafting table:
 - Precise and engineering-led.
 - Short statements followed by concrete proof.
 - Avoid generic AI claims such as “revolutionary” or “magic.”
-- Prefer “Generate a verified bracket from intent” over “Unlock limitless creativity.”
-- Explain that the on-page demo is illustrative until a production website is connected to the CAD Agent backend.
+- State what the product does, what the user can review, and what files are available.
+- Avoid abstract slogans, personification, invented outcomes, and claims not supported by the product.
+- Explain that the on-page interactive model is an illustrative WordsWave workspace preview.
 
 ## Source synchronization
 

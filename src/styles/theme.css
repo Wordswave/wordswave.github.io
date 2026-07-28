@@ -22,14 +22,14 @@
   --radius-interactive: var(--component-button-radius);
   --radius-orbit: var(--primitive-radius-full);
 
-  --text-caption: var(--primitive-text-caption);
-  --text-body-sm: var(--primitive-text-body-small);
-  --text-body: var(--primitive-text-body);
-  --text-subheading: var(--primitive-text-subheading);
-  --text-heading-sm: var(--primitive-text-heading-small);
-  --text-heading: var(--primitive-text-heading);
-  --text-heading-lg: var(--primitive-text-heading-large);
-  --text-display: var(--primitive-text-display);
+  --text-metadata: var(--semantic-type-metadata-size);
+  --text-supporting: var(--semantic-type-supporting-size);
+  --text-body: var(--semantic-type-body-size);
+  --text-lead: var(--semantic-type-lead-size);
+  --text-module: var(--semantic-type-module-title-size);
+  --text-section: var(--semantic-type-section-title-size);
+  --text-page: var(--semantic-type-page-title-size);
+  --text-display: var(--semantic-type-display-size);
 
   --shadow-flat: var(--primitive-shadow-none);
   --animate-reveal: reveal var(--primitive-duration-slow) ease-out both;

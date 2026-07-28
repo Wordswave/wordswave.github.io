@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from 'react'
 import { content, type Language } from './content'
 
-const STORAGE_KEY = 'cad-agent.language'
+const STORAGE_KEY = 'wordswave.language'
 
 interface LanguageContextValue {
   language: Language

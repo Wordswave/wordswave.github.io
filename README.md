@@ -1,6 +1,6 @@
-# CAD Agent Website
+# WordsWave Website
 
-Bilingual, multi-page product website for CAD Agent.
+Bilingual, multi-page product website for WordsWave.
 
 ## Local development
 
@@ -13,13 +13,19 @@ The development server uses Vite and prints the local URL after startup.
 
 ## Configuration
 
-Set `VITE_WORKSPACE_URL` to point the shared workspace calls to action at an available CAD Agent workspace:
+Set `VITE_WORKSPACE_URL` to point the shared workspace calls to action at an available WordsWave workspace:
 
 ```bash
 VITE_WORKSPACE_URL=https://example.com/workspace npm run dev
 ```
 
 When the variable is not set, workspace actions lead to the local `/product` page.
+
+## Product media
+
+- `public/media/wordswave-logo.jpg` is the supplied source logo. Shared brand lockups crop it non-destructively with CSS.
+- `public/media/wordswave-product-demo.mp4` is the supplied Product-page demo. It autoplays muted, loops, plays inline, and retains native controls.
+- The demo does not autoplay when the visitor requests reduced motion.
 
 ## Verification
 

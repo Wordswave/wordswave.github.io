@@ -30,14 +30,37 @@
 
   /* Primitive typography */
   --primitive-font-sans: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --primitive-text-caption: 11px;
-  --primitive-text-body-small: 15px;
-  --primitive-text-body: 18px;
-  --primitive-text-subheading: 34px;
-  --primitive-text-heading-small: 46px;
-  --primitive-text-heading: 70px;
-  --primitive-text-heading-large: 76px;
-  --primitive-text-display: 103px;
+  --primitive-type-size-metadata: 12px;
+  --primitive-type-size-supporting: 14px;
+  --primitive-type-size-body: 16px;
+  --primitive-type-size-lead: 17px;
+  --primitive-type-size-module-mobile: 26px;
+  --primitive-type-size-module-tablet: 28px;
+  --primitive-type-size-module: 30px;
+  --primitive-type-size-section-mobile: 36px;
+  --primitive-type-size-section-tablet: 44px;
+  --primitive-type-size-section: 52px;
+  --primitive-type-size-page-mobile: 44px;
+  --primitive-type-size-page-tablet: 56px;
+  --primitive-type-size-page: 68px;
+  --primitive-type-size-display-mobile: 48px;
+  --primitive-type-size-display-tablet: 68px;
+  --primitive-type-size-display: 82px;
+  --primitive-type-weight-regular: 400;
+  --primitive-type-weight-medium: 500;
+  --primitive-type-weight-semibold: 600;
+  --primitive-type-line-display: 0.92;
+  --primitive-type-line-page: 0.94;
+  --primitive-type-line-section: 1;
+  --primitive-type-line-module: 1.08;
+  --primitive-type-line-lead: 1.45;
+  --primitive-type-line-body: 1.5;
+  --primitive-type-line-supporting: 1.45;
+  --primitive-type-line-compact: 1.2;
+  --primitive-type-tracking-display: -0.045em;
+  --primitive-type-tracking-heading: -0.03em;
+  --primitive-type-tracking-body: 0em;
+  --primitive-type-tracking-metadata: 0.05em;
 
   /* Primitive shape, size, and motion */
   --primitive-radius-none: 0px;
@@ -71,6 +94,42 @@
   --semantic-radius-surface: var(--primitive-radius-none);
   --semantic-radius-interactive: var(--primitive-radius-interactive);
   --semantic-font-sans: var(--primitive-font-sans);
+  --semantic-type-display-size: var(--primitive-type-size-display);
+  --semantic-type-display-weight: var(--primitive-type-weight-regular);
+  --semantic-type-display-line: var(--primitive-type-line-display);
+  --semantic-type-display-tracking: var(--primitive-type-tracking-display);
+  --semantic-type-page-title-size: var(--primitive-type-size-page);
+  --semantic-type-page-title-weight: var(--primitive-type-weight-regular);
+  --semantic-type-page-title-line: var(--primitive-type-line-page);
+  --semantic-type-page-title-tracking: var(--primitive-type-tracking-heading);
+  --semantic-type-section-title-size: var(--primitive-type-size-section);
+  --semantic-type-section-title-weight: var(--primitive-type-weight-regular);
+  --semantic-type-section-title-line: var(--primitive-type-line-section);
+  --semantic-type-section-title-tracking: var(--primitive-type-tracking-heading);
+  --semantic-type-module-title-size: var(--primitive-type-size-module);
+  --semantic-type-module-title-weight: var(--primitive-type-weight-regular);
+  --semantic-type-module-title-line: var(--primitive-type-line-module);
+  --semantic-type-module-title-tracking: var(--primitive-type-tracking-heading);
+  --semantic-type-lead-size: var(--primitive-type-size-lead);
+  --semantic-type-lead-weight: var(--primitive-type-weight-regular);
+  --semantic-type-lead-line: var(--primitive-type-line-lead);
+  --semantic-type-lead-tracking: var(--primitive-type-tracking-body);
+  --semantic-type-body-size: var(--primitive-type-size-body);
+  --semantic-type-body-weight: var(--primitive-type-weight-regular);
+  --semantic-type-body-line: var(--primitive-type-line-body);
+  --semantic-type-body-tracking: var(--primitive-type-tracking-body);
+  --semantic-type-supporting-size: var(--primitive-type-size-supporting);
+  --semantic-type-supporting-weight: var(--primitive-type-weight-regular);
+  --semantic-type-supporting-line: var(--primitive-type-line-supporting);
+  --semantic-type-supporting-tracking: var(--primitive-type-tracking-body);
+  --semantic-type-navigation-size: var(--primitive-type-size-supporting);
+  --semantic-type-navigation-weight: var(--primitive-type-weight-medium);
+  --semantic-type-navigation-line: var(--primitive-type-line-supporting);
+  --semantic-type-navigation-tracking: var(--primitive-type-tracking-body);
+  --semantic-type-metadata-size: var(--primitive-type-size-metadata);
+  --semantic-type-metadata-weight: var(--primitive-type-weight-semibold);
+  --semantic-type-metadata-line: var(--primitive-type-line-compact);
+  --semantic-type-metadata-tracking: var(--primitive-type-tracking-metadata);
 
   /* Component tokens */
   --component-button-height: var(--primitive-size-cta);
@@ -86,4 +145,49 @@
   --component-card-padding: var(--semantic-spacing-card);
   --component-card-radius: var(--semantic-radius-surface);
   --component-card-shadow: var(--primitive-shadow-none);
+  --component-type-button-size: var(--semantic-type-metadata-size);
+  --component-type-button-weight: var(--semantic-type-metadata-weight);
+  --component-type-button-line: var(--semantic-type-metadata-line);
+  --component-type-button-tracking: var(--semantic-type-metadata-tracking);
+  --component-type-navigation-size: var(--semantic-type-navigation-size);
+  --component-type-navigation-weight: var(--semantic-type-navigation-weight);
+  --component-type-navigation-line: var(--semantic-type-navigation-line);
+  --component-type-navigation-tracking: var(--semantic-type-navigation-tracking);
+  --component-type-card-title-size: var(--semantic-type-module-title-size);
+  --component-type-card-title-weight: var(--semantic-type-module-title-weight);
+  --component-type-card-title-line: var(--semantic-type-module-title-line);
+  --component-type-card-title-tracking: var(--semantic-type-module-title-tracking);
+  --component-type-product-label-size: var(--semantic-type-metadata-size);
+  --component-type-product-label-weight: var(--semantic-type-metadata-weight);
+  --component-type-product-label-line: var(--semantic-type-metadata-line);
+  --component-type-product-label-tracking: var(--semantic-type-metadata-tracking);
+  --component-type-footer-size: var(--semantic-type-supporting-size);
+  --component-type-footer-weight: var(--semantic-type-supporting-weight);
+  --component-type-footer-line: var(--semantic-type-supporting-line);
+  --component-type-footer-tracking: var(--semantic-type-supporting-tracking);
+}
+
+html[lang='zh-CN'] {
+  --semantic-type-display-tracking: 0em;
+  --semantic-type-page-title-tracking: 0em;
+  --semantic-type-section-title-tracking: 0em;
+  --semantic-type-module-title-tracking: 0em;
+}
+
+@media (max-width: 900px) {
+  :root {
+    --semantic-type-display-size: 68px;
+    --semantic-type-page-title-size: 56px;
+    --semantic-type-section-title-size: 44px;
+    --semantic-type-module-title-size: 28px;
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --semantic-type-display-size: 48px;
+    --semantic-type-page-title-size: 44px;
+    --semantic-type-section-title-size: 36px;
+    --semantic-type-module-title-size: 26px;
+  }
 }

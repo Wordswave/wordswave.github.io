@@ -1,0 +1,844 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`bilingual content contract > snapshots every runtime string in both languages 1`] = `
+{
+  "en": {
+    "a11y": {
+      "closeNav": "Close navigation",
+      "footerNav": "Footer navigation",
+      "home": "WordsWave home",
+      "language": "Language",
+      "mobileNav": "Mobile navigation",
+      "openNav": "Open navigation",
+      "primaryNav": "Primary navigation",
+      "selectedExample": "Selected example",
+      "skip": "Skip to main content",
+    },
+    "about": {
+      "disclosure": "This website presents the current WordsWave product direction and workflow.",
+      "hero": {
+        "label": "About",
+        "primary": "Explore product",
+        "support": "WordsWave connects natural-language engineering requests with editable CAD models, engineering checks, history, and file export.",
+        "title": "An AI engineering workspace for CAD creation and review.",
+      },
+      "label": "Product approach",
+      "principles": [
+        {
+          "description": "Generated designs remain available for parameter and feature changes.",
+          "title": "Editable models",
+        },
+        {
+          "description": "Model parameters, operation history, and available checks are presented for review.",
+          "title": "Reviewable results",
+        },
+        {
+          "description": "The engineering request, model review, and available exports are handled in one workspace.",
+          "title": "Clear workflow",
+        },
+      ],
+      "title": "Designed for practical engineering work.",
+    },
+    "actions": {
+      "backHome": "Back home",
+      "backToTop": "Back to top",
+      "readDocs": "Read docs",
+      "viewProduct": "Explore product",
+      "viewUseCases": "View use cases",
+      "workspace": "Open workspace",
+    },
+    "cadExamples": [
+      {
+        "constraints": 8,
+        "envelope": "120 × 80 × 36 mm",
+        "exports": [
+          "STEP",
+          "STL",
+          "SVG",
+        ],
+        "id": "mounting-bracket",
+        "index": "01",
+        "model": "bracket",
+        "operations": [
+          "Sketch",
+          "Extrude",
+          "Hole ×4",
+          "Fillet",
+        ],
+        "parameters": [
+          {
+            "label": "Plate",
+            "value": "6.0 mm",
+          },
+          {
+            "label": "Holes",
+            "value": "Ø 8.5 mm",
+          },
+          {
+            "label": "Fillet",
+            "value": "R 4.0 mm",
+          },
+          {
+            "label": "Material",
+            "value": "6061-T6",
+          },
+        ],
+        "prompt": "Create a 120 × 80 mm mounting bracket with a 36 mm rise, four M8 clearance holes, and 4 mm edge fillets.",
+        "title": "Mounting bracket",
+        "validation": {
+          "details": [
+            "Watertight solid",
+            "Minimum wall 6.0 mm",
+            "Hole spacing verified",
+          ],
+          "title": "Ready for review",
+        },
+      },
+      {
+        "constraints": 14,
+        "envelope": "160 × 96 × 42 mm",
+        "exports": [
+          "STEP",
+          "STL",
+          "DXF",
+        ],
+        "id": "electronics-enclosure",
+        "index": "02",
+        "model": "enclosure",
+        "operations": [
+          "Shell",
+          "Bosses ×4",
+          "Vent array",
+          "Lid split",
+        ],
+        "parameters": [
+          {
+            "label": "Wall",
+            "value": "2.4 mm",
+          },
+          {
+            "label": "Clearance",
+            "value": "0.3 mm",
+          },
+          {
+            "label": "Corner",
+            "value": "R 8.0 mm",
+          },
+          {
+            "label": "Draft",
+            "value": "1.5°",
+          },
+        ],
+        "prompt": "Build a 160 × 96 × 42 mm electronics enclosure with a removable lid, PCB bosses, side vents, and 0.3 mm assembly clearance.",
+        "title": "Electronics enclosure",
+        "validation": {
+          "details": [
+            "Lid clearance checked",
+            "Draft check passed",
+            "Boss spacing constrained",
+          ],
+          "title": "Assembly checks complete",
+        },
+      },
+      {
+        "constraints": 11,
+        "envelope": "210 × 70 × 24 mm",
+        "exports": [
+          "STEP",
+          "STL",
+          "PDF",
+        ],
+        "id": "alignment-jig",
+        "index": "03",
+        "model": "jig",
+        "operations": [
+          "Base",
+          "Pockets ×2",
+          "Datum pins",
+          "Labels",
+        ],
+        "parameters": [
+          {
+            "label": "Datums",
+            "value": "96 mm",
+          },
+          {
+            "label": "Pins",
+            "value": "Ø 6.0 mm",
+          },
+          {
+            "label": "Pocket",
+            "value": "3.0 mm",
+          },
+          {
+            "label": "Label depth",
+            "value": "0.4 mm",
+          },
+        ],
+        "prompt": "Design a 210 × 70 mm alignment jig with two 6 mm datum pins, a 3 mm locating pocket, and engraved setup labels.",
+        "title": "Alignment jig",
+        "validation": {
+          "details": [
+            "Datum alignment checked",
+            "Tool access clear",
+            "Engraving depth valid",
+          ],
+          "title": "Fixture checks complete",
+        },
+      },
+    ],
+    "docs": {
+      "disclosure": "This website provides an overview of the current product workflow. Detailed guidance will be added as the product documentation develops.",
+      "hero": {
+        "label": "Docs",
+        "primary": "Explore product",
+        "support": "Learn how to describe a part, review the generated model, check the result, and download files.",
+        "title": "Understand the core CAD workflow.",
+      },
+      "label": "Core workflow",
+      "steps": [
+        {
+          "description": "Specify the part, dimensions, material, and design constraints.",
+          "title": "Describe",
+        },
+        {
+          "description": "Inspect the model preview, parameters, and operation history.",
+          "title": "Review",
+        },
+        {
+          "description": "Review the available geometry and manufacturing checks.",
+          "title": "Verify",
+        },
+        {
+          "description": "Choose an available format for downstream work.",
+          "title": "Export",
+        },
+      ],
+      "title": "From engineering request to file export.",
+    },
+    "footer": {
+      "note": "The interactive model on this website is an illustrative preview of the WordsWave workspace.",
+    },
+    "home": {
+      "closing": {
+        "label": "Start with a specific engineering request",
+        "secondary": "Explore product capabilities",
+        "title": "Create the model, review the output, and continue editing.",
+      },
+      "hero": {
+        "action": "View the workflow",
+        "lines": [
+          "Describe the part",
+          "Create the model",
+          "Review the result",
+        ],
+        "scroll": "Scroll",
+        "scrollLabel": "Scroll to the core workflow",
+        "support": "Create or modify CAD designs from an engineering request, then review the model, parameters, engineering checks, history, and downloadable files.",
+      },
+      "values": {
+        "items": [
+          {
+            "description": "Create or modify a CAD design from a written engineering request.",
+            "title": "Natural-language CAD",
+          },
+          {
+            "description": "Inspect the preview, parameters, operation history, and engineering checks.",
+            "title": "Model review",
+          },
+          {
+            "description": "Download the formats available for the generated design.",
+            "title": "File export",
+          },
+        ],
+        "label": "Core workflow",
+        "support": "Create or modify a design, inspect the result, and download the available files.",
+        "title": "Complete the core CAD workflow in one workspace.",
+      },
+      "workflow": {
+        "label": "Workflow",
+        "steps": [
+          {
+            "input": "Engineering request",
+            "output": "Specify the part, dimensions, material, and design constraints.",
+            "title": "Describe",
+          },
+          {
+            "input": "CAD generation",
+            "output": "Generate editable geometry with an ordered operation history.",
+            "title": "Create",
+          },
+          {
+            "input": "Engineering checks",
+            "output": "Inspect parameters, engineering checks, history, and available export formats.",
+            "title": "Review",
+          },
+        ],
+        "support": "Each step keeps the model information available for review and revision.",
+        "title": "From engineering request to downloadable CAD output.",
+      },
+    },
+    "meta": {
+      "about": "About — WordsWave",
+      "docs": "Docs — WordsWave",
+      "home": "WordsWave — Natural-language CAD workspace",
+      "notFound": "Page not found — WordsWave",
+      "product": "Product — WordsWave",
+      "useCases": "Use cases — WordsWave",
+    },
+    "nav": {
+      "about": "About",
+      "docs": "Docs",
+      "home": "Home",
+      "product": "Product",
+      "useCases": "Use cases",
+    },
+    "notFound": {
+      "label": "404",
+      "support": "The page may have moved or the address may be incorrect.",
+      "title": "Page not found.",
+    },
+    "product": {
+      "demo": {
+        "activeModel": "Sample model",
+        "constraintState": "Constraint state",
+        "envelope": "Overall size",
+        "exportManifest": "Export formats",
+        "fullyConstrained": "Fully constrained",
+        "label": "Interactive preview",
+        "loaded": "loaded",
+        "operationHistory": "Operation history",
+        "parameters": "Parameters",
+        "prompt": "Engineering request",
+        "requests": "Example requests",
+        "requestsLabel": "Example engineering requests",
+        "support": "Switch example requests to review the model, parameters, engineering checks, operation history, and export formats.",
+        "synchronized": "Sample model loaded",
+        "title": "Inspect a complete sample result.",
+        "toolbar": "WordsWave / Interactive preview",
+        "validation": "Engineering checks",
+        "viewportMode": "Isometric / constraints shown",
+      },
+      "evidence": {
+        "action": "View use cases",
+        "items": [
+          {
+            "description": "Review named dimensions, material, clearances, and feature values.",
+            "label": "Named values",
+            "rows": [
+              "Named dimensions",
+              "Units",
+              "Revision values",
+            ],
+            "title": "Model parameters",
+          },
+          {
+            "description": "Review solid integrity, constraint state, and available interference results.",
+            "label": "Model checks",
+            "rows": [
+              "Watertight solid",
+              "Constraint state",
+              "Interference results",
+            ],
+            "title": "Geometry checks",
+          },
+          {
+            "description": "Review available wall thickness, draft, and tool-access results.",
+            "label": "Available checks",
+            "rows": [
+              "Minimum wall",
+              "Draft direction",
+              "Tool access",
+            ],
+            "title": "Manufacturing checks",
+          },
+          {
+            "description": "Follow the ordered steps used to create the model.",
+            "label": "Build sequence",
+            "rows": [
+              "Sketch",
+              "Feature sequence",
+              "Change history",
+            ],
+            "title": "Operation history",
+          },
+          {
+            "description": "Review the geometry and supporting files available for download.",
+            "label": "Available files",
+            "rows": [
+              "STEP / STL",
+              "SVG / DXF",
+              "Model information",
+            ],
+            "title": "Export formats",
+          },
+        ],
+        "label": "Model review",
+        "title": "Review the model information before download.",
+      },
+      "hero": {
+        "label": "Product",
+        "primary": "Open workspace",
+        "secondary": "View use cases",
+        "support": "Use natural language to generate or modify a design, inspect the result, adjust parameters, run available checks, and download files.",
+        "title": "Create, edit, and review CAD in one workspace.",
+      },
+      "video": {
+        "ariaLabel": "WordsWave product demo",
+        "fallback": "Your browser cannot play this product demo.",
+        "label": "Product demo",
+        "title": "See the workspace in use.",
+      },
+    },
+    "useCases": {
+      "hero": {
+        "label": "Use cases",
+        "primary": "Explore product",
+        "secondary": "Read docs",
+        "support": "Create editable designs for brackets, fixtures, enclosures, and prototype mechanisms.",
+        "title": "CAD workflows for common mechanical design tasks.",
+      },
+      "items": [
+        {
+          "description": "Create constrained plates, hole patterns, ribs, and fillets.",
+          "title": "Brackets + mounts",
+        },
+        {
+          "description": "Define datums, locating features, and tool-access clearances.",
+          "title": "Jigs + fixtures",
+        },
+        {
+          "description": "Build shells, lids, bosses, vents, and assembly clearances.",
+          "title": "Product enclosures",
+        },
+        {
+          "description": "Create editable concept geometry for changing requirements.",
+          "title": "Prototype mechanisms",
+        },
+      ],
+      "label": "Applications",
+      "support": "Start with an engineering request, then review the resulting model and available checks.",
+      "title": "Common engineering use cases.",
+    },
+  },
+  "zh": {
+    "a11y": {
+      "closeNav": "关闭导航",
+      "footerNav": "页脚导航",
+      "home": "WordsWave 首页",
+      "language": "语言",
+      "mobileNav": "移动端导航",
+      "openNav": "打开导航",
+      "primaryNav": "主导航",
+      "selectedExample": "已选示例",
+      "skip": "跳到主要内容",
+    },
+    "about": {
+      "disclosure": "本网站展示 WordsWave 当前的产品方向和工作流程。",
+      "hero": {
+        "label": "关于",
+        "primary": "查看产品",
+        "support": "WordsWave 将自然语言工程需求与可编辑 CAD 模型、工程检查、历史记录和文件导出整合在一个工作区。",
+        "title": "用于 CAD 创建与检查的 AI 工程工作区。",
+      },
+      "label": "产品方式",
+      "principles": [
+        {
+          "description": "生成的设计支持继续调整参数和特征。",
+          "title": "可编辑模型",
+        },
+        {
+          "description": "集中查看模型参数、操作历史和当前可用检查。",
+          "title": "可检查结果",
+        },
+        {
+          "description": "在一个工作区处理工程需求、模型检查和可用导出文件。",
+          "title": "清晰流程",
+        },
+      ],
+      "title": "面向实际工程工作设计。",
+    },
+    "actions": {
+      "backHome": "返回首页",
+      "backToTop": "返回顶部",
+      "readDocs": "阅读文档",
+      "viewProduct": "查看产品",
+      "viewUseCases": "查看应用场景",
+      "workspace": "打开工作区",
+    },
+    "cadExamples": [
+      {
+        "constraints": 8,
+        "envelope": "120 × 80 × 36 mm",
+        "exports": [
+          "STEP",
+          "STL",
+          "SVG",
+        ],
+        "id": "mounting-bracket",
+        "index": "01",
+        "model": "bracket",
+        "operations": [
+          "草图",
+          "拉伸",
+          "孔 ×4",
+          "圆角",
+        ],
+        "parameters": [
+          {
+            "label": "板厚",
+            "value": "6.0 mm",
+          },
+          {
+            "label": "孔径",
+            "value": "Ø 8.5 mm",
+          },
+          {
+            "label": "圆角",
+            "value": "R 4.0 mm",
+          },
+          {
+            "label": "材料",
+            "value": "6061-T6",
+          },
+        ],
+        "prompt": "创建 120 × 80 mm 安装支架，高 36 mm，包含四个 M8 间隙孔与 4 mm 边缘圆角。",
+        "title": "安装支架",
+        "validation": {
+          "details": [
+            "封闭实体",
+            "最小壁厚 6.0 mm",
+            "孔距已验证",
+          ],
+          "title": "可供审查",
+        },
+      },
+      {
+        "constraints": 14,
+        "envelope": "160 × 96 × 42 mm",
+        "exports": [
+          "STEP",
+          "STL",
+          "DXF",
+        ],
+        "id": "electronics-enclosure",
+        "index": "02",
+        "model": "enclosure",
+        "operations": [
+          "抽壳",
+          "支柱 ×4",
+          "通风阵列",
+          "上盖分割",
+        ],
+        "parameters": [
+          {
+            "label": "壁厚",
+            "value": "2.4 mm",
+          },
+          {
+            "label": "间隙",
+            "value": "0.3 mm",
+          },
+          {
+            "label": "转角",
+            "value": "R 8.0 mm",
+          },
+          {
+            "label": "拔模",
+            "value": "1.5°",
+          },
+        ],
+        "prompt": "构建 160 × 96 × 42 mm 电子设备外壳，包含可拆上盖、PCB 支柱、侧面通风口与 0.3 mm 装配间隙。",
+        "title": "电子设备外壳",
+        "validation": {
+          "details": [
+            "上盖间隙已检查",
+            "拔模检查通过",
+            "支柱间距已约束",
+          ],
+          "title": "装配检查完成",
+        },
+      },
+      {
+        "constraints": 11,
+        "envelope": "210 × 70 × 24 mm",
+        "exports": [
+          "STEP",
+          "STL",
+          "PDF",
+        ],
+        "id": "alignment-jig",
+        "index": "03",
+        "model": "jig",
+        "operations": [
+          "底座",
+          "凹槽 ×2",
+          "基准销",
+          "标记",
+        ],
+        "parameters": [
+          {
+            "label": "基准距",
+            "value": "96 mm",
+          },
+          {
+            "label": "销径",
+            "value": "Ø 6.0 mm",
+          },
+          {
+            "label": "槽深",
+            "value": "3.0 mm",
+          },
+          {
+            "label": "刻字深度",
+            "value": "0.4 mm",
+          },
+        ],
+        "prompt": "设计 210 × 70 mm 对齐夹具，包含两个 6 mm 基准销、3 mm 定位槽与雕刻装配标记。",
+        "title": "对齐夹具",
+        "validation": {
+          "details": [
+            "基准对齐已检查",
+            "工具空间充足",
+            "刻字深度有效",
+          ],
+          "title": "夹具检查完成",
+        },
+      },
+    ],
+    "docs": {
+      "disclosure": "本网站概述当前产品工作流程。随着产品文档完善，将补充更详细的使用说明。",
+      "hero": {
+        "label": "文档",
+        "primary": "查看产品",
+        "support": "了解如何描述零件、检查生成模型、查看检查结果并下载文件。",
+        "title": "了解 CAD 核心工作流程。",
+      },
+      "label": "核心流程",
+      "steps": [
+        {
+          "description": "说明零件、尺寸、材料和设计约束。",
+          "title": "描述",
+        },
+        {
+          "description": "查看模型预览、参数和操作历史。",
+          "title": "审查",
+        },
+        {
+          "description": "查看当前可用的几何和制造检查。",
+          "title": "验证",
+        },
+        {
+          "description": "选择可用格式，衔接后续工作。",
+          "title": "导出",
+        },
+      ],
+      "title": "从工程需求到文件导出。",
+    },
+    "footer": {
+      "note": "本网站中的交互模型为 WordsWave 工作区的功能示意。",
+    },
+    "home": {
+      "closing": {
+        "label": "从具体工程需求开始",
+        "secondary": "查看产品能力",
+        "title": "创建模型、检查输出并继续编辑。",
+      },
+      "hero": {
+        "action": "查看工作流程",
+        "lines": [
+          "描述零件需求",
+          "生成 CAD 模型",
+          "检查输出结果",
+        ],
+        "scroll": "向下",
+        "scrollLabel": "滚动到核心流程",
+        "support": "根据工程需求创建或修改 CAD 设计，并查看模型、参数、工程检查、历史记录和可下载文件。",
+      },
+      "values": {
+        "items": [
+          {
+            "description": "通过书面工程需求创建或修改 CAD 设计。",
+            "title": "自然语言 CAD",
+          },
+          {
+            "description": "查看模型预览、参数、操作历史和工程检查。",
+            "title": "模型检查",
+          },
+          {
+            "description": "下载当前设计可用的文件格式。",
+            "title": "文件导出",
+          },
+        ],
+        "label": "核心流程",
+        "support": "创建或修改设计，检查输出结果，并下载当前可用文件。",
+        "title": "在一个工作区完成 CAD 核心流程。",
+      },
+      "workflow": {
+        "label": "工作流程",
+        "steps": [
+          {
+            "input": "工程需求",
+            "output": "说明零件、尺寸、材料和设计约束。",
+            "title": "描述",
+          },
+          {
+            "input": "CAD 生成",
+            "output": "生成可编辑几何和有序操作历史。",
+            "title": "创建",
+          },
+          {
+            "input": "工程检查",
+            "output": "查看参数、工程检查、历史记录和可用导出格式。",
+            "title": "检查",
+          },
+        ],
+        "support": "各步骤保留模型信息，便于检查和继续修改。",
+        "title": "从工程需求到可下载的 CAD 输出。",
+      },
+    },
+    "meta": {
+      "about": "关于 — WordsWave",
+      "docs": "文档 — WordsWave",
+      "home": "WordsWave — 自然语言 CAD 工作区",
+      "notFound": "页面未找到 — WordsWave",
+      "product": "产品 — WordsWave",
+      "useCases": "应用场景 — WordsWave",
+    },
+    "nav": {
+      "about": "关于",
+      "docs": "文档",
+      "home": "首页",
+      "product": "产品",
+      "useCases": "应用场景",
+    },
+    "notFound": {
+      "label": "404",
+      "support": "页面可能已移动，或地址有误。",
+      "title": "页面未找到。",
+    },
+    "product": {
+      "demo": {
+        "activeModel": "示例模型",
+        "constraintState": "约束状态",
+        "envelope": "外形尺寸",
+        "exportManifest": "导出格式",
+        "fullyConstrained": "完全约束",
+        "label": "交互预览",
+        "loaded": "已加载",
+        "operationHistory": "操作历史",
+        "parameters": "参数",
+        "prompt": "工程需求",
+        "requests": "示例需求",
+        "requestsLabel": "工程需求示例",
+        "support": "切换示例需求，查看模型、参数、工程检查、操作历史和导出格式。",
+        "synchronized": "示例模型已加载",
+        "title": "查看完整示例结果。",
+        "toolbar": "WordsWave / 交互预览",
+        "validation": "工程检查",
+        "viewportMode": "等轴测 / 显示约束",
+      },
+      "evidence": {
+        "action": "查看应用场景",
+        "items": [
+          {
+            "description": "查看具名尺寸、材料、间隙和特征数值。",
+            "label": "具名数值",
+            "rows": [
+              "具名尺寸",
+              "单位",
+              "修订数值",
+            ],
+            "title": "模型参数",
+          },
+          {
+            "description": "查看实体完整性、约束状态和可用干涉检查结果。",
+            "label": "模型检查",
+            "rows": [
+              "封闭实体",
+              "约束状态",
+              "干涉结果",
+            ],
+            "title": "几何检查",
+          },
+          {
+            "description": "查看可用的壁厚、拔模和工具空间检查结果。",
+            "label": "可用检查",
+            "rows": [
+              "最小壁厚",
+              "拔模方向",
+              "工具空间",
+            ],
+            "title": "制造检查",
+          },
+          {
+            "description": "按顺序查看模型的创建步骤。",
+            "label": "构建顺序",
+            "rows": [
+              "草图",
+              "特征顺序",
+              "变更历史",
+            ],
+            "title": "操作历史",
+          },
+          {
+            "description": "查看可下载的几何文件和配套信息。",
+            "label": "可用文件",
+            "rows": [
+              "STEP / STL",
+              "SVG / DXF",
+              "模型信息",
+            ],
+            "title": "导出格式",
+          },
+        ],
+        "label": "模型检查",
+        "title": "下载前检查模型信息。",
+      },
+      "hero": {
+        "label": "产品",
+        "primary": "打开工作区",
+        "secondary": "查看应用场景",
+        "support": "使用自然语言生成或修改设计，查看结果、调整参数、运行可用检查并下载文件。",
+        "title": "在一个工作区创建、编辑和检查 CAD。",
+      },
+      "video": {
+        "ariaLabel": "WordsWave 产品演示",
+        "fallback": "当前浏览器无法播放此产品演示。",
+        "label": "产品演示",
+        "title": "查看工作区的实际操作。",
+      },
+    },
+    "useCases": {
+      "hero": {
+        "label": "应用场景",
+        "primary": "查看产品",
+        "secondary": "阅读文档",
+        "support": "创建支架、夹具、外壳和原型机构等可编辑设计。",
+        "title": "适用于常见机械设计任务的 CAD 工作流程。",
+      },
+      "items": [
+        {
+          "description": "创建带约束的板件、孔阵列、加强筋与圆角。",
+          "title": "支架与安装件",
+        },
+        {
+          "description": "定义基准、定位特征和工具空间间隙。",
+          "title": "工装与夹具",
+        },
+        {
+          "description": "构建壳体、上盖、支柱、通风口与装配间隙。",
+          "title": "产品外壳",
+        },
+        {
+          "description": "为变化中的需求创建可编辑概念几何。",
+          "title": "原型机构",
+        },
+      ],
+      "label": "应用",
+      "support": "从工程需求开始，检查生成的模型和当前可用检查。",
+      "title": "常见工程应用场景。",
+    },
+  },
+}
+`;

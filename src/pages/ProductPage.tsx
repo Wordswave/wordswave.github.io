@@ -1,6 +1,7 @@
 import { EvidenceGrid } from '../components/EvidenceGrid'
 import { PageHero } from '../components/PageHero'
 import { ProductDemo } from '../components/ProductDemo'
+import { ProductVideo } from '../components/ProductVideo'
 import { workspaceUrl } from '../config'
 import { useLanguage } from '../i18n/LanguageContext'
 
@@ -17,6 +18,7 @@ export function ProductPage() {
         support={hero.support}
         title={hero.title}
       />
+      <ProductVideo />
       <ProductDemo />
       <EvidenceGrid />
     </>

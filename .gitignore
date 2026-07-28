@@ -3,6 +3,13 @@ dist/
 coverage/
 .DS_Store
 .gstack/
+.superpowers/
 *.local
 *.log
 
+# Tencent Cloud EdgeOne
+.env
+.env.*
+!.env.example
+.edgeone/*
+.tef_dist/*

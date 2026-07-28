@@ -21,15 +21,27 @@ describe('bilingual route tree', () => {
   })
 
   it.each([
-    ['/', /describe it/i],
-    ['/product', /model, parameters, evidence/i],
-    ['/use-cases', /cad for real parts/i],
-    ['/docs', /a clear path to export/i],
-    ['/about', /engineering intent, made editable/i],
+    ['/', /describe the partcreate the modelreview the result/i],
+    ['/product', /create, edit, and review cad in one workspace/i],
+    ['/use-cases', /cad workflows for common mechanical design tasks/i],
+    ['/docs', /understand the core cad workflow/i],
+    ['/about', /an ai engineering workspace for cad creation and review/i],
     ['/missing', /page not found/i],
   ])('renders %s directly', (path, heading) => {
     renderRoute(path)
     expect(screen.getByRole('heading', { level: 1, name: heading })).toBeVisible()
+  })
+
+  it('uses the professional WordsWave brand and footer disclosure', () => {
+    renderRoute('/')
+
+    expect(screen.getAllByRole('link', { name: 'WordsWave home' })).toHaveLength(2)
+    expect(document.title).toBe('WordsWave — Natural-language CAD workspace')
+    expect(
+      screen.getByText(
+        'The interactive model on this website is an illustrative preview of the WordsWave workspace.',
+      ),
+    ).toBeVisible()
   })
 
   it('switches language, updates the document language, and persists the choice', () => {
@@ -37,7 +49,9 @@ describe('bilingual route tree', () => {
 
     fireEvent.click(screen.getAllByRole('button', { name: '中文' })[0])
 
-    expect(screen.getByRole('heading', { level: 1, name: /描述需求生成模型验证结果/ })).toBeVisible()
+    expect(
+      screen.getByRole('heading', { level: 1, name: /描述零件需求生成 CAD 模型检查输出结果/ }),
+    ).toBeVisible()
     expect(document.documentElement).toHaveAttribute('lang', 'zh-CN')
     expect(window.localStorage.getItem(STORAGE_KEY)).toBe('zh')
     expect(screen.getByRole('link', { name: '返回顶部' })).toBeVisible()
@@ -45,7 +59,7 @@ describe('bilingual route tree', () => {
     firstRender.unmount()
     renderRoute('/docs')
 
-    expect(screen.getByRole('heading', { level: 1, name: /从需求到导出的清晰路径/ })).toBeVisible()
+    expect(screen.getByRole('heading', { level: 1, name: /了解 CAD 核心工作流程/ })).toBeVisible()
     expect(screen.getAllByRole('button', { name: '中文' })[0]).toHaveAttribute(
       'aria-pressed',
       'true',

@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { workspaceUrl } from '../config'
 import { useLanguage } from '../i18n/LanguageContext'
+import { BrandMark } from './BrandMark'
 import { LanguageSwitch } from './LanguageSwitch'
 
 export function SiteHeader() {
@@ -44,10 +45,7 @@ export function SiteHeader() {
     <header className="site-header" data-scrolled={scrolled ? 'true' : 'false'}>
       <div className="page-shell flex h-full items-center justify-between gap-element">
         <Link className="wordmark" to="/" aria-label={copy.a11y.home}>
-          <span className="wordmark-mark" aria-hidden="true">
-            C
-          </span>
-          <span>CAD / AGENT</span>
+          <BrandMark />
         </Link>
 
         <nav aria-label={copy.a11y.primaryNav} className="hidden items-center gap-6 lg:flex">
