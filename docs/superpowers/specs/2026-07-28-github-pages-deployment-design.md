@@ -20,9 +20,23 @@ The deployment must preserve the current bilingual content, visual design, page 
 Before the first public push:
 
 - confirm no `.env` file is tracked;
-- scan tracked and untracked project files for common credential patterns;
+- scan tracked files, untracked publication candidates, and the full reachable Git history with a history-aware secret scanner in redacted mode;
 - confirm `.edgeone/`, local credentials, build output, and temporary QA files remain ignored;
+- inventory every modified and untracked path, classify whether it belongs in the public website repository, and stage only an explicit allowlist;
+- review the complete staged diff before each commit;
+- never use `git add -A` or another broad staging command in the dirty worktree;
 - stop if a possible secret is found rather than publishing it.
+
+The existing website changes are handled before the Pages adapter:
+
+1. Record the current dirty-worktree inventory.
+2. Stage only the verified product-site files that make up the version the user has already reviewed.
+3. Leave unrelated or uncertain files uncommitted.
+4. Commit the verified site state on the existing feature branch without renaming the branch.
+5. Implement and commit the GitHub Pages adapter separately.
+6. Push the final feature-branch commit to the new remote `main` ref with `HEAD:main`; the local feature branch name remains unchanged.
+
+This strategy publishes the reviewed working state without stashing, discarding, or silently absorbing unrelated user files.
 
 ## Chosen Routing Approach
 
@@ -38,6 +52,8 @@ The Pages build will publish:
 - `dist/404.html`
 
 Each route entry is a copy of the Vite-generated application shell. GitHub Pages can therefore serve a successful document for every known direct route, while React Router renders the correct page after startup. `404.html` preserves the existing in-app not-found experience for unknown paths.
+
+Because GitHub Pages canonicalizes directory routes to trailing-slash URLs, route metadata code will normalize every non-root pathname by removing trailing slashes before looking up the page title. Tests cover both `/product` and `/product/`.
 
 This approach was selected instead of:
 
@@ -80,6 +96,20 @@ The workflow runs on pushes to `main` and supports manual dispatch. It uses the 
 
 Concurrent Pages runs are grouped so a newer deployment supersedes an older queued run without interrupting an active production publish.
 
+The workflow contract is:
+
+- runtime: Node.js 22;
+- checkout: `actions/checkout@v4`;
+- Node setup and npm cache: `actions/setup-node@v4`;
+- Pages configuration: `actions/configure-pages@v5`;
+- artifact upload: `actions/upload-pages-artifact@v3`, with `dist` as the only uploaded path;
+- deployment: `actions/deploy-pages@v4`;
+- build job first, deploy job second with an explicit `needs: build`;
+- deploy job environment: `github-pages`;
+- environment URL: the `page_url` output from the deploy step.
+
+Before the first workflow run, set the repository Pages publishing source to **GitHub Actions** through the repository settings or the corresponding GitHub API. Do not rely on branch publishing.
+
 ## Files
 
 Expected implementation changes:
@@ -93,7 +123,7 @@ Expected implementation changes:
 - Add `scripts/prepare-pages.mjs` to generate route entry files.
 - Add `.github/workflows/deploy-pages.yml`.
 - Update `README.md` with the public URL and deployment command.
-- Normalize the existing EdgeOne-generated `.gitignore` block and ensure all local deployment state remains ignored.
+- Modify `.gitignore` only if an exact required ignore rule is absent. Preserve every existing user change and do not broadly normalize or rewrite the file.
 
 No page copy, component layout, design token, or visual styling change is in scope.
 
@@ -105,6 +135,7 @@ No page copy, component layout, design token, or visual styling change is in sco
 - Test, typecheck, or build failure: do not push.
 - Pages workflow failure: inspect the GitHub Actions logs before changing code.
 - Direct-route or asset failure after deployment: compare the Pages artifact with local `dist` before modifying routing.
+- Unknown-route behavior mismatch: verify the deployed `404.html` response, base-prefixed assets, React NotFound page, and home link independently before changing the router.
 
 ## Verification
 
@@ -115,6 +146,7 @@ Local verification:
 - `npm run build` still produces the root-based EdgeOne/local artifact;
 - `npm run build:pages` produces base-prefixed asset references;
 - every known route entry file and `404.html` exists;
+- route-title tests pass for both trailing-slash and non-trailing-slash known paths;
 - Logo and Demo are included in the Pages artifact.
 
 GitHub verification:
@@ -125,7 +157,8 @@ GitHub verification:
 - the Pages production URL is persistent;
 - homepage loads at desktop and mobile widths;
 - language switching works;
-- direct navigation and refresh work for `/product/`, `/use-cases/`, `/docs/`, and `/about/`;
+- direct navigation and refresh work for both slash forms of `/product`, `/use-cases`, `/docs`, and `/about`, with correct document titles;
+- an unknown direct URL returns HTTP 404 while still loading the application shell, base-prefixed assets, the existing in-app NotFound page, and a working link back to `/wordswave-web/`;
 - Logo renders correctly;
 - Demo video loads, autoplays muted when allowed, and loops;
 - no blocking browser console errors occur.
