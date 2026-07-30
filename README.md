@@ -41,7 +41,7 @@ The site uses client-side routing. Configure the static host to rewrite unknown 
 
 ## GitHub Pages
 
-Public preview: <https://owenywt.github.io/wordswave-web/>
+Public site: <https://wordswave.github.io/>
 
 Build the Pages artifact locally:
 
