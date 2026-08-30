@@ -86,7 +86,7 @@ describe('bilingual route tree', () => {
     expect(screen.queryByText('从具体工程需求开始')).not.toBeInTheDocument()
   })
 
-  it.each(['/product', '/use-cases', '/docs', '/about'])(
+  it.each(['/product', '/use-cases', '/docs', '/about', '/missing'])(
     'omits decorative page and section labels from %s',
     (path) => {
       const { container } = renderRoute(path)

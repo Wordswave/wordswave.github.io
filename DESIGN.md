@@ -141,7 +141,7 @@ Cards behave like sheets on a drafting table:
 ## Page structure
 
 1. Minimal top navigation with product anchors and a compact CTA.
-2. Full-viewport editorial hero with three-part headline, sphere, rings, description, and scroll cue.
+2. Full-viewport editorial hero with three-part headline, sphere, rings, description, and workflow CTA.
 3. Product promise in an asymmetric two-column editorial block.
 4. Prompt → model → verification workflow.
 5. Interactive CAD workspace demonstration with selectable prompt examples.
