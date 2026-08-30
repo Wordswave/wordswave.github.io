@@ -70,4 +70,31 @@ describe('bilingual route tree', () => {
       'true',
     )
   })
+
+  it('omits decorative micro-labels from the home page', () => {
+    const { container } = renderRoute('/')
+
+    expect(screen.queryByLabelText('Scroll to the core workflow')).not.toBeInTheDocument()
+    expect(container.querySelector('.closing-inner > .eyebrow')).not.toBeInTheDocument()
+    expect(screen.queryByText('Start with a specific engineering request')).not.toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { level: 2, name: /complete the core cad workflow/i }),
+    ).toBeVisible()
+
+    fireEvent.click(screen.getAllByRole('button', { name: '中文' })[0])
+    expect(screen.queryByLabelText('滚动到核心流程')).not.toBeInTheDocument()
+    expect(screen.queryByText('从具体工程需求开始')).not.toBeInTheDocument()
+  })
+
+  it.each(['/product', '/use-cases', '/docs', '/about'])(
+    'omits decorative page and section labels from %s',
+    (path) => {
+      const { container } = renderRoute(path)
+
+      expect(container.querySelector('.page-hero .eyebrow')).not.toBeInTheDocument()
+      expect(
+        container.querySelector('.page-shell > .flex.items-center.gap-3'),
+      ).not.toBeInTheDocument()
+    },
+  )
 })
