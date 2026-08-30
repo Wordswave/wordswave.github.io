@@ -21,9 +21,8 @@ export function DocsPage() {
             <p>{copy.docs.disclosure}</p>
           </div>
           <ol className="page-list-grid">
-            {copy.docs.steps.map((step, index) => (
+            {copy.docs.steps.map((step) => (
               <li key={step.title}>
-                <span className="eyebrow">{String(index + 1).padStart(2, '0')}</span>
                 <div>
                   <h3>{step.title}</h3>
                   <p>{step.description}</p>

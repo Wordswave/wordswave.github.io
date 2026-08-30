@@ -97,4 +97,33 @@ describe('bilingual route tree', () => {
       ).not.toBeInTheDocument()
     },
   )
+
+  it('omits decorative headers from home marketing cards', () => {
+    const { container } = renderRoute('/')
+
+    expect(container.querySelector('.value-card-head')).not.toBeInTheDocument()
+    expect(container.querySelector('.workflow-step-head')).not.toBeInTheDocument()
+  })
+
+  it('omits decorative metadata from product evidence cards', () => {
+    const { container } = renderRoute('/product')
+
+    expect(container.querySelector('.evidence-card-head')).not.toBeInTheDocument()
+    expect(container.querySelector('.evidence-card-copy > .eyebrow')).not.toBeInTheDocument()
+    expect(screen.queryByText('↗')).not.toBeInTheDocument()
+  })
+
+  it.each([
+    ['/use-cases', '.use-case-list > article > .eyebrow'],
+    ['/docs', '.page-list-grid > li > .eyebrow'],
+    ['/about', '.principle-grid > article > .eyebrow'],
+  ])('omits decorative counters from %s', (path, selector) => {
+    const { container } = renderRoute(path)
+    expect(container.querySelector(selector)).not.toBeInTheDocument()
+  })
+
+  it('omits non-action arrows from use-case cards', () => {
+    const { container } = renderRoute('/use-cases')
+    expect(container.querySelector('.use-case-list article > svg')).not.toBeInTheDocument()
+  })
 })

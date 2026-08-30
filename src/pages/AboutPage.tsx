@@ -21,9 +21,8 @@ export function AboutPage() {
             <p>{copy.about.disclosure}</p>
           </div>
           <div className="principle-grid">
-            {copy.about.principles.map((principle, index) => (
+            {copy.about.principles.map((principle) => (
               <article key={principle.title}>
-                <span className="eyebrow">{String(index + 1).padStart(2, '0')}</span>
                 <div>
                   <h3>{principle.title}</h3>
                   <p>{principle.description}</p>
