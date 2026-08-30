@@ -96,14 +96,6 @@
     padding-block: clamp(var(--primitive-space-section), 9vw, var(--primitive-space-section-wide));
   }
 
-  .eyebrow {
-    font-size: var(--semantic-type-metadata-size);
-    font-weight: var(--semantic-type-metadata-weight);
-    letter-spacing: var(--semantic-type-metadata-tracking);
-    line-height: var(--semantic-type-metadata-line);
-    text-transform: uppercase;
-  }
-
   .skip-link {
     position: fixed;
     z-index: 100;
@@ -309,7 +301,7 @@
 
 .page-hero h1 {
   max-width: 1160px;
-  margin: var(--primitive-space-8) 0 0;
+  margin: 0;
   font-size: var(--semantic-type-page-title-size);
   font-weight: var(--semantic-type-page-title-weight);
   letter-spacing: var(--semantic-type-page-title-tracking);
@@ -456,22 +448,6 @@
   justify-self: start;
 }
 
-.scroll-cue {
-  position: absolute;
-  z-index: 3;
-  bottom: var(--primitive-space-card);
-  left: clamp(var(--primitive-space-5), 3.2vw, var(--primitive-space-gutter-desktop));
-  display: inline-flex;
-  align-items: center;
-  gap: var(--primitive-space-1);
-  font-size: var(--semantic-type-metadata-size);
-  font-weight: var(--semantic-type-metadata-weight);
-  letter-spacing: var(--semantic-type-metadata-tracking);
-  line-height: var(--semantic-type-metadata-line);
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
 .value-section,
 .workflow-section {
   border-top: 1px solid var(--semantic-color-text);
@@ -482,7 +458,7 @@
   grid-template-columns: minmax(0, 2fr) minmax(220px, 1fr);
   align-items: end;
   gap: var(--semantic-spacing-element);
-  margin-top: var(--primitive-space-12);
+  margin-top: 0;
 }
 
 .section-heading-row h2 {
@@ -516,19 +492,13 @@
 .value-grid article,
 .principle-grid article {
   display: flex;
-  min-height: 310px;
+  min-height: 230px;
   flex-direction: column;
   justify-content: space-between;
   border-right: 1px solid var(--semantic-color-border);
   border-bottom: 1px solid var(--semantic-color-border);
   padding: var(--component-card-padding);
   background: var(--component-card-bg);
-}
-
-.value-card-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
 .value-grid h3,
@@ -572,10 +542,7 @@
 }
 
 .page-list-grid li {
-  display: grid;
-  min-height: 230px;
-  grid-template-columns: auto 1fr;
-  gap: var(--primitive-space-8);
+  min-height: 200px;
   border-right: 1px solid var(--semantic-color-border);
   border-bottom: 1px solid var(--semantic-color-border);
   padding: var(--component-card-padding);
@@ -585,7 +552,7 @@
   display: grid;
   grid-template-columns: minmax(0, 2fr) minmax(220px, 1fr);
   gap: var(--semantic-spacing-element);
-  margin-top: var(--primitive-space-12);
+  margin-top: 0;
 }
 
 .workflow-heading-row h2 {
@@ -617,7 +584,7 @@
 }
 
 .workflow-sequence li {
-  min-height: 315px;
+  min-height: 230px;
   border-top: 1px solid var(--semantic-color-text);
   border-left: 1px solid var(--semantic-color-border);
   padding: var(--component-card-padding);
@@ -627,14 +594,8 @@
   border-right: 1px solid var(--semantic-color-border);
 }
 
-.workflow-step-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
 .workflow-sequence h3 {
-  margin: var(--primitive-space-16) 0 var(--primitive-space-4);
+  margin: 0 0 var(--primitive-space-4);
   font-size: var(--component-type-card-title-size);
   font-weight: var(--component-type-card-title-weight);
   letter-spacing: var(--component-type-card-title-tracking);
@@ -694,7 +655,7 @@
   display: grid;
   grid-template-columns: minmax(0, 2fr) minmax(240px, 1fr);
   gap: var(--semantic-spacing-element);
-  margin-top: var(--primitive-space-12);
+  margin-top: 0;
 }
 
 .product-heading-row h2 {
@@ -1128,7 +1089,7 @@
   grid-template-columns: minmax(0, 2fr) minmax(240px, 1fr);
   align-items: end;
   gap: var(--semantic-spacing-element);
-  margin-top: var(--primitive-space-12);
+  margin-top: 0;
 }
 
 .evidence-heading-row h2,
@@ -1157,7 +1118,7 @@
 .evidence-card {
   grid-column: span 4;
   display: flex;
-  min-height: 440px;
+  min-height: 360px;
   flex-direction: column;
   border-right: 1px solid var(--semantic-color-border);
   border-bottom: 1px solid var(--semantic-color-border);
@@ -1169,19 +1130,13 @@
   grid-column: span 8;
 }
 
-.evidence-card-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
 .evidence-card-copy {
-  margin-top: auto;
+  margin-top: 0;
 }
 
 .evidence-card h3 {
   max-width: 520px;
-  margin: var(--primitive-space-3) 0 0;
+  margin: 0;
   font-size: var(--component-type-card-title-size);
   font-weight: var(--component-type-card-title-weight);
   letter-spacing: var(--component-type-card-title-tracking);
@@ -1239,7 +1194,7 @@
 
 .use-case-list article {
   display: grid;
-  grid-template-columns: minmax(48px, 0.35fr) minmax(210px, 1fr) minmax(250px, 1.3fr) auto;
+  grid-template-columns: minmax(210px, 0.8fr) minmax(250px, 1.2fr);
   align-items: center;
   gap: var(--semantic-spacing-element);
   min-height: 118px;
@@ -1286,7 +1241,7 @@
 
 .closing-title {
   max-width: 1180px;
-  margin: var(--primitive-space-8) 0 0;
+  margin: 0;
   font-size: var(--semantic-type-page-title-size);
   font-weight: var(--semantic-type-page-title-weight);
   letter-spacing: var(--semantic-type-page-title-tracking);
@@ -1433,10 +1388,6 @@
     min-height: 540px;
   }
 
-  .page-hero h1 {
-    margin-top: var(--primitive-space-6);
-  }
-
   .page-hero-support {
     margin-top: var(--primitive-space-8);
   }
@@ -1507,10 +1458,6 @@
     width: auto;
   }
 
-  .scroll-cue {
-    display: none;
-  }
-
   .section-heading-row,
   .workflow-heading-row,
   .product-heading-row,
@@ -1528,15 +1475,11 @@
 
   .value-grid article,
   .principle-grid article {
-    min-height: 240px;
+    min-height: 200px;
   }
 
   .page-list-grid li {
     min-height: 190px;
-  }
-
-  .workflow-heading-row {
-    margin-top: var(--primitive-space-8);
   }
 
   .workflow-sequence {
@@ -1545,7 +1488,7 @@
   }
 
   .workflow-sequence li {
-    min-height: 255px;
+    min-height: 210px;
     border-right: 1px solid var(--semantic-color-border);
   }
 
@@ -1609,7 +1552,7 @@
   .evidence-card,
   .evidence-card-lead {
     grid-column: span 12;
-    min-height: 400px;
+    min-height: 340px;
   }
 
   .use-case-list {
@@ -1617,13 +1560,13 @@
   }
 
   .use-case-list article {
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: 1fr;
     gap: var(--primitive-space-3);
     padding-block: var(--primitive-space-5);
   }
 
   .use-case-list p {
-    grid-column: 2 / -1;
+    grid-column: auto;
   }
 
   .closing-section,
