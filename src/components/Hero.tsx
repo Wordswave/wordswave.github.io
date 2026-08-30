@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowDownRight } from 'lucide-react'
+import { ArrowDownRight } from 'lucide-react'
 import { useLanguage } from '../i18n/LanguageContext'
 
 export function Hero() {
@@ -24,11 +24,6 @@ export function Hero() {
             <ArrowDownRight aria-hidden="true" size={14} strokeWidth={1.5} />
           </a>
         </div>
-
-        <a aria-label={copy.home.hero.scrollLabel} className="scroll-cue" href="#value">
-          {copy.home.hero.scroll}
-          <ArrowDown aria-hidden="true" size={13} strokeWidth={1.5} />
-        </a>
       </div>
     </section>
   )

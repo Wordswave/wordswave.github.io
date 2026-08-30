@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { productVideoUrl } from '../config'
 import { useLanguage } from '../i18n/LanguageContext'
-import { SectionLabel } from './SectionLabel'
 
 const reducedMotionQuery = '(prefers-reduced-motion: reduce)'
 
@@ -47,7 +46,6 @@ export function ProductVideo() {
       aria-labelledby="product-video-title"
     >
       <div className="page-shell">
-        <SectionLabel index="01">{video.label}</SectionLabel>
         <div className="product-heading-row">
           <h2 id="product-video-title">{video.title}</h2>
         </div>

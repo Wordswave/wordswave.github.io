@@ -14,7 +14,6 @@ export function ClosingCta() {
       <div aria-hidden="true" className="closing-orbit closing-orbit-one" />
       <div aria-hidden="true" className="closing-orbit closing-orbit-two" />
       <div className="page-shell closing-inner">
-        <p className="eyebrow">{copy.home.closing.label}</p>
         <h2
           className="closing-title"
           data-pretext="true"

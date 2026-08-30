@@ -1,7 +1,6 @@
 import { ArrowUpRight, Check, FileOutput, History, Ruler, ShieldCheck } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useLanguage } from '../i18n/LanguageContext'
-import { SectionLabel } from './SectionLabel'
 
 const evidenceIcons = [Ruler, ShieldCheck, Check, History, FileOutput] as const
 
@@ -12,7 +11,6 @@ export function EvidenceGrid() {
   return (
     <section className="section-pad evidence-section" id="evidence" aria-labelledby="evidence-title">
       <div className="page-shell">
-        <SectionLabel index="03">{evidence.label}</SectionLabel>
         <div className="evidence-heading-row">
           <h2 id="evidence-title">{evidence.title}</h2>
           <Link className="text-link" to="/use-cases">

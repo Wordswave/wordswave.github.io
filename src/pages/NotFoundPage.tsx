@@ -6,7 +6,6 @@ export function NotFoundPage() {
 
   return (
     <PageHero
-      label={copy.notFound.label}
       primary={{ href: '/', label: copy.actions.backHome }}
       support={copy.notFound.support}
       title={copy.notFound.title}

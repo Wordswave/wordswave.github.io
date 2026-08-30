@@ -1,6 +1,5 @@
 import { BadgeCheck, Box, MessageSquareText } from 'lucide-react'
 import { useLanguage } from '../i18n/LanguageContext'
-import { SectionLabel } from './SectionLabel'
 
 const stepIcons = [MessageSquareText, Box, BadgeCheck] as const
 
@@ -10,7 +9,6 @@ export function Workflow() {
   return (
     <section className="section-pad workflow-section" id="workflow" aria-labelledby="workflow-title">
       <div className="page-shell">
-        <SectionLabel index="02">{copy.home.workflow.label}</SectionLabel>
         <div className="workflow-heading-row">
           <h2 id="workflow-title">{copy.home.workflow.title}</h2>
           <p>{copy.home.workflow.support}</p>

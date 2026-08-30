@@ -1,6 +1,5 @@
 import { ArrowUpRight } from 'lucide-react'
 import { useLanguage } from '../i18n/LanguageContext'
-import { SectionLabel } from './SectionLabel'
 
 export function UseCases() {
   const { copy } = useLanguage()
@@ -8,7 +7,6 @@ export function UseCases() {
   return (
     <section className="section-pad use-case-section" id="use-cases" aria-labelledby="use-cases-title">
       <div className="page-shell">
-        <SectionLabel index="01">{copy.useCases.label}</SectionLabel>
         <div className="use-case-heading-row">
           <h2 id="use-cases-title">{copy.useCases.title}</h2>
           <p>{copy.useCases.support}</p>

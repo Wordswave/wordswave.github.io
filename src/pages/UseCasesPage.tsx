@@ -9,7 +9,6 @@ export function UseCasesPage() {
   return (
     <>
       <PageHero
-        label={hero.label}
         primary={{ href: '/product', label: hero.primary }}
         secondary={{ href: '/docs', label: hero.secondary ?? copy.actions.readDocs }}
         support={hero.support}

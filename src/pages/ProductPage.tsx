@@ -12,7 +12,6 @@ export function ProductPage() {
   return (
     <>
       <PageHero
-        label={hero.label}
         primary={{ href: workspaceUrl, label: hero.primary, external: true }}
         secondary={{ href: '/use-cases', label: hero.secondary ?? copy.actions.viewUseCases }}
         support={hero.support}
