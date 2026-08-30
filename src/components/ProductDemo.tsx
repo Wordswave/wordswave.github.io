@@ -2,7 +2,6 @@ import { Check, ChevronRight, Download, SlidersHorizontal, Terminal } from 'luci
 import { useState } from 'react'
 import { useLanguage } from '../i18n/LanguageContext'
 import { CadModel } from './CadModel'
-import { SectionLabel } from './SectionLabel'
 
 export function ProductDemo() {
   const { copy } = useLanguage()
@@ -14,7 +13,6 @@ export function ProductDemo() {
   return (
     <section className="section-pad product-section" id="preview" aria-labelledby="product-demo-title">
       <div className="page-shell">
-        <SectionLabel index="02">{labels.label}</SectionLabel>
         <div className="product-heading-row">
           <h2 id="product-demo-title">{labels.title}</h2>
           <p>{labels.support}</p>

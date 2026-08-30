@@ -8,7 +8,6 @@ interface PageHeroAction {
 }
 
 interface PageHeroProps {
-  label: string
   title: string
   support: string
   primary: PageHeroAction
@@ -40,13 +39,12 @@ function HeroAction({
   )
 }
 
-export function PageHero({ label, primary, secondary, support, title }: PageHeroProps) {
+export function PageHero({ primary, secondary, support, title }: PageHeroProps) {
   return (
     <section aria-labelledby="page-title" className="page-hero">
       <div aria-hidden="true" className="page-hero-orbit page-hero-orbit-one" />
       <div aria-hidden="true" className="page-hero-orbit page-hero-orbit-two" />
       <div className="page-shell page-hero-inner">
-        <p className="eyebrow">{label}</p>
         <h1 id="page-title">{title}</h1>
         <div className="page-hero-support">
           <p>{support}</p>

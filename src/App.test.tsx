@@ -70,4 +70,60 @@ describe('bilingual route tree', () => {
       'true',
     )
   })
+
+  it('omits decorative micro-labels from the home page', () => {
+    const { container } = renderRoute('/')
+
+    expect(screen.queryByLabelText('Scroll to the core workflow')).not.toBeInTheDocument()
+    expect(container.querySelector('.closing-inner > .eyebrow')).not.toBeInTheDocument()
+    expect(screen.queryByText('Start with a specific engineering request')).not.toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { level: 2, name: /complete the core cad workflow/i }),
+    ).toBeVisible()
+
+    fireEvent.click(screen.getAllByRole('button', { name: '中文' })[0])
+    expect(screen.queryByLabelText('滚动到核心流程')).not.toBeInTheDocument()
+    expect(screen.queryByText('从具体工程需求开始')).not.toBeInTheDocument()
+  })
+
+  it.each(['/product', '/use-cases', '/docs', '/about', '/missing'])(
+    'omits decorative page and section labels from %s',
+    (path) => {
+      const { container } = renderRoute(path)
+
+      expect(container.querySelector('.page-hero .eyebrow')).not.toBeInTheDocument()
+      expect(
+        container.querySelector('.page-shell > .flex.items-center.gap-3'),
+      ).not.toBeInTheDocument()
+    },
+  )
+
+  it('omits decorative headers from home marketing cards', () => {
+    const { container } = renderRoute('/')
+
+    expect(container.querySelector('.value-card-head')).not.toBeInTheDocument()
+    expect(container.querySelector('.workflow-step-head')).not.toBeInTheDocument()
+  })
+
+  it('omits decorative metadata from product evidence cards', () => {
+    const { container } = renderRoute('/product')
+
+    expect(container.querySelector('.evidence-card-head')).not.toBeInTheDocument()
+    expect(container.querySelector('.evidence-card-copy > .eyebrow')).not.toBeInTheDocument()
+    expect(screen.queryByText('↗')).not.toBeInTheDocument()
+  })
+
+  it.each([
+    ['/use-cases', '.use-case-list > article > .eyebrow'],
+    ['/docs', '.page-list-grid > li > .eyebrow'],
+    ['/about', '.principle-grid > article > .eyebrow'],
+  ])('omits decorative counters from %s', (path, selector) => {
+    const { container } = renderRoute(path)
+    expect(container.querySelector(selector)).not.toBeInTheDocument()
+  })
+
+  it('omits non-action arrows from use-case cards', () => {
+    const { container } = renderRoute('/use-cases')
+    expect(container.querySelector('.use-case-list article > svg')).not.toBeInTheDocument()
+  })
 })
